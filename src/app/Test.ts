@@ -1,0 +1,73 @@
+export class Test {
+    id: number;
+    username: string;
+    browsername: string;
+    cap1:string;
+    cap2:string;
+    cap3:string;
+    cap4:string;
+    cap5:string;
+    cap6:string;
+    cap7:string;
+    cap8:string;
+    duration:string;
+    os:string; 
+    teststatus:string; 
+    videolink1:string;
+    videolink2:string;
+    videolink3:string;
+    videolink4:string;
+    browserversion:string;
+    durationminutes:string;
+    screen1:string;
+    screen2:string;
+    screen3:string;
+    screen4:string;
+    screen5:string;
+    screen6:string;
+    screen7:string;
+    screen8:string;
+    screen9:string;
+    screen10:string;
+    screen11:string;
+    screen12:string;
+    time1:string;
+    time2:string;
+    time3:string;
+    time4:string;
+    time5:string;
+    time6:string;
+    time7:string;
+    time8:string;
+    time9:string;
+    time10:string;
+    time11:string;
+    time12:string;
+    step1:string;
+    step2:string;
+    step3:string;
+    step4:string;
+    step5:string;
+    step6:string;
+    step7:string;
+    step8:string;
+    step9:string;
+    step10:string;
+    step11:string;
+    step12:string;
+    step13:string;
+    step14:string;
+    step15:string;
+    teststatus1:string;
+    teststatus2:string;
+    teststatus3:string;
+    teststatus4:string;
+    testcount:number;
+    testpassed:number;
+    testfailed:number;
+    startedAt:string;
+    
+
+
+   
+}

@@ -1,0 +1,36 @@
+<div class="wrapper">
+
+    <mat-card class="nestedgeneralinfo1 z-depth-3">
+
+        <div class="colorea">
+            <div class="text">Username : {{sessionvideo.username}} </div>
+            <div class="text">Browser's name : {{sessionvideo.browsername}} </div>
+            <div class="text">Operating system : {{sessionvideo.os}} <img class="image" src="/assets/windows.png"></div>
+        </div>
+        <div class="colorea">
+            <div class="text">Browser Version : {{sessionvideo.browserversion}} </div>
+            <div class="text">Test failed : {{sessionvideo.testfailed}} / {{sessionvideo.testcount}} <img class="image" src="/assets/failed.png"></div>
+            <div class="text">Test passed : {{sessionvideo.testpassed}} / {{sessionvideo.testcount}} <img class="image" src="/assets/success.png"></div>
+        </div>
+        <div class="colorea">
+            <div class="text">Started at : {{sessionvideo.startedAt}} <img class="image" src="/assets/calendar.png"></div>
+            <div class="text">Session's title : {{sessionvideo.sessiontitle}} </div>
+            <div class="text">Number of Tests : {{sessionvideo.testcount}} </div>
+        </div>
+
+
+    </mat-card>
+    <mat-card class="flexing">
+        <mat-card class="item">
+            <div class="testdiv" *ngFor="let testsession of testvideo">
+                <p class="text">| Test Case #{{testsession.testrank}} | {{testsession.testname}} | Test Status :
+                    <span class="passed">{{testsession.teststatus}}</span> | Created at {{testsession.startedAt}} <button class="buttonimg" (click)="viewtest(testsession.sessionid,testsession.testrank)"></button></p>
+                <br></div>
+
+        </mat-card>
+
+
+    </mat-card>
+
+
+</div>

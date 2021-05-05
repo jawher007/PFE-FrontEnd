@@ -1,0 +1,11 @@
+<img class="imge" src="assets/feedbackscreen.png">
+<br>
+<h1>
+    Submit feedback</h1>
+<form class="example-form" (submit)="onSubmit()">
+    <div class="form-group">
+        <textarea type="text" class="form-control" id="feedback1" required [(ngModel)]="feedback.feedback1" name="feedback1" aria-required="true"></textarea>
+    </div>
+    <button *ngIf="disable==='able'" type="submit" mat-stroked-button color="accent" class="btn-block">Send</button>
+    <button *ngIf="disable==='disable'" type="submit" mat-stroked-button color="accent" class="btn-block" disabled>Send</button>
+</form>

@@ -1,0 +1,42 @@
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td,
+th {
+    width: 25%;
+}
+
+.img {
+    display: block;
+    width: 200px;
+    height: auto;
+}
+
+.imggrid {
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.a {
+    color: aqua;
+    background-color: aqua;
+    background: aqua;
+}
+
+.mat-row:nth-child(even) {
+    background-color: #F0F0F0;
+}
+
+.mat-row:hover {
+    background-color: #C0C0C0;
+}
+
+.mat-row:hover {
+    background-color: #ABB2B9;
+}

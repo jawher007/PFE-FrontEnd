@@ -1,0 +1,66 @@
+<cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport"></cdk-virtual-scroll-viewport>
+
+<mat-tab-group>
+    <mat-tab>
+        <ng-template mat-tab-label>
+
+            Feedbacks
+        </ng-template>
+        <br>
+        <div class="flexing">
+            <div *ngFor="let feedbacks of feedback | async">
+
+
+                <div class="card border-success">
+                    <div class="card-header">
+                        Test Id : #{{feedbacks.localization}} | Feedback issued by : {{feedbacks.userfeedback}}
+                        <div class="flx"> <button type="button" class="btn btn-outline-success" (click)="updatefeedback(feedbacks.id)" *ngIf="feedbacks.userfeedback==user">Update</button> &nbsp;
+                            <button type="button" class="btn btn-outline-danger" (click)="deletefeedback(feedbacks.id)" *ngIf="feedbacks.userfeedback==user">Delete</button></div>
+                    </div>
+                    <div class="card-body">
+
+                        {{feedbacks.feedback1}}
+
+                    </div>
+                </div>
+
+                <br>
+
+            </div>
+        </div>
+
+    </mat-tab>
+
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+
+            Issues
+        </ng-template>
+        <br>
+        <div class="flexing">
+            <div *ngFor="let issues of issue | async">
+
+
+                <div class="card border-danger">
+                    <div class="card-header">
+                        Test Id : #{{issues.idtest}} | Bug issued by : {{issues.tester}}
+                        <div class="flx"> <button type="button" class="btn btn-outline-success" (click)="updateissue(issues.id)" *ngIf="issues.tester==user">Update</button> &nbsp;
+                            <button type="button" class="btn btn-outline-danger" (click)="deleteissue(issues.id)" *ngIf="issues.tester==user">Delete</button></div>
+                    </div>
+                    <div class="card-body">
+
+                        {{issues.issuetext}}
+
+                    </div>
+                </div>
+                <br>
+            </div>
+
+
+
+        </div>
+    </mat-tab>
+
+
+</mat-tab-group>

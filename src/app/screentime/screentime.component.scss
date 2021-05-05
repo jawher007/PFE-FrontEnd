@@ -1,0 +1,50 @@
+.flexing {
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    height: auto;
+    width: 97%;
+}
+
+.text {
+    color: gray;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.h2 {
+    color: rgb(70, 179, 230);
+}
+
+.buttonimg {
+    height: 17px;
+    width: 17px;
+    margin-left: 133px;
+    background: url("/assets/test.png");
+    background-size: cover;
+    border: 0;
+}
+
+.passed {
+    color: rgb(49, 214, 49) !important;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+}
+
+.navbar {
+    width: auto;
+    height: 50px;
+    background: rgb(52, 158, 219);
+}
+
+.textnavbar {
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+    display: inline;
+}
+
+.stat {
+    font-weight: bold;
+    font-style: oblique;
+    display: inline;
+}

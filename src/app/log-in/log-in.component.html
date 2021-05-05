@@ -1,0 +1,26 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <img class="example-full-width" src="/assets/output-onlinepngtools.png">
+        <mat-card-header>
+            <mat-card-title class="titlelogin">Log in</mat-card-title>
+        </mat-card-header>
+        <br>
+
+        <form class="example-form" [formGroup]="form" (submit)="onSubmit(form)">
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="playerName" name="userName" formControlName="userName" placeholder="UserName" required>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input type="password" matInput name="password" formControlName="password" placeholder="Password" required>
+                </mat-form-field>
+
+
+            </mat-card-content>
+            <button type="submit" [disabled]="!form.valid" mat-stroked-button color="accent" class="btn-block">Log in</button>
+        </form>
+        <br>
+        <a style="font-weight: bold;" routerLinkActive="list-item-active" routerLink="/register">Register</a>
+    </mat-card>
+</div>

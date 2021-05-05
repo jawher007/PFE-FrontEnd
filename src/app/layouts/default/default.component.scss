@@ -1,0 +1,24 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+mat-drawer {
+    width: 350px;
+}
+
+mat-drawer-container {
+    height: 100%;
+}
+
+mat-drawer-content {
+    padding: 20px;
+}
+
+.greycolor {
+    background: rgb(233, 233, 233);
+    color: rgb(233, 233, 233);
+    background-color: rgb(233, 233, 233);
+    ;
+}

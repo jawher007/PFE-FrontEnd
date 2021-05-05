@@ -1,0 +1,72 @@
+:host {
+    .mat-icon {
+        vertical-align: middle;
+    }
+    .profile-card {
+        // position: fixed !important;
+        background: rgb(255, 255, 255);
+        text-align: center;
+        padding: 0 20px 20px 20px;
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+    .example-viewport {
+        height: 500px;
+        width: 350;
+    }
+    .example-item {
+        background: rgb(233, 233, 233);
+        height: 100%;
+        width: 100%;
+    }
+    .button-parent {
+        width: 100%;
+        height: 100%;
+    }
+    .button-parent:hover {
+        border: 1px solid #888;
+        background-color: #ddd;
+    }
+    .example-card-content {
+        background: rgb(255, 255, 255);
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+    .example-card {
+        background: rgb(255, 255, 255);
+        border-bottom: 1px solid rgb(189, 189, 189);
+        border-top: 1px solid rgb(189, 189, 189);
+        ;
+        margin-top: 12px;
+    }
+    /** No CSS for this example */
+    .image {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+    }
+    .felx_btn {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 50px;
+    }
+    .active {
+        border: 2px solid;
+        border-color: rgb(55, 177, 214);
+    }
+    .mat-card:nth-child(even) {
+        background-color: #F0F0F0;
+    }
+    .mat-card:hover {
+        background-color: #C0C0C0;
+    }
+    .mat-card:hover {
+        border: 1px solid #888;
+        background-color: #ddd;
+    }
+}

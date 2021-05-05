@@ -1,0 +1,117 @@
+<mat-toolbar>
+
+    <mat-toolbar-row class="navbar">
+
+
+
+        <button class="a" mat-icon-button (click)="toggleSideBar()">
+                <img class="a" src="/assets/drawer.svg">
+                </button>
+        <img (click)="gotodashboard()" class="logoced" src="/assets/output-onlinepngtools.png">
+
+
+
+
+
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end" class="align">
+            <ul fxLayout="row" fxLayoutGap="20px">
+
+
+
+                <li>
+                    <mat-card class="md-card-thread">
+                        <div>
+                            <span> <img src="assets/data_saver_off-24px.svg"></span>
+                            <mat-label class="color-label-nav-bar"> |Parallel threads| </mat-label>
+                            <mat-label class="color-label-nav-bar"> :</mat-label>
+                            <mat-label class="color-label-nav-bar"> ENABLED</mat-label>
+
+                        </div>
+                    </mat-card>
+                </li>
+
+                <li>
+                    <mat-card class="md-card-buttons" (click)="openDialogPortal()">
+                        <button mat-icon-button title="portal">
+                           <img src="/assets/dashboard.png">
+                        </button>
+                    </mat-card>
+                </li>
+                <li>
+                    <mat-card class="md-card-buttons" title="change theme">
+                        <app-menu [options]="options$ | async" (themeChange)="themeChangeHandler($event)">
+                        </app-menu>
+                    </mat-card>
+
+                </li>
+
+                <li>
+                    <mat-card class="md-card-buttons" (click)="openDialog()">
+                        <button mat-icon-button title="show users">
+                           <img src="/assets/users.png">
+                        </button>
+                    </mat-card>
+                </li>
+
+
+
+
+                <li>
+                    <mat-card class="md-card-buttons" (click)="openDialogshowFeedback()">
+                        <button mat-icon-button title="show feedbacks and bugs reported">
+                               <img src="/assets/showfeedback.png">
+                            </button>
+                    </mat-card>
+                </li>
+                <li>
+                    <mat-card class="md-card-buttons" (click)="openDialogFeedback()">
+                        <button mat-icon-button title="send feedback">
+                           <img src="/assets/feedback.png">
+                        </button>
+                    </mat-card>
+                </li>
+                <li>
+                    <mat-card class="md-card-buttons" (click)="openDialogIssue()">
+                        <button mat-icon-button title="report a bug">
+                               <img src="/assets/bug.png">
+                            </button>
+                    </mat-card>
+                </li>
+                <li>
+                    <mat-card class="md-card-thread">
+                        <div>
+
+                            <mat-label class="color-label-nav-bar">{{username}}</mat-label>
+
+
+                        </div>
+                    </mat-card>
+                </li>
+                <li>
+                    <mat-card class="md-card-buttons">
+                        <button mat-button [matMenuTriggerFor]="menu">
+                            <mat-icon>person_outline</mat-icon>
+                        </button>
+                    </mat-card>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialogContact()">
+                                <img src="/assets/about us.png">
+                               About us
+                            </button>
+                        <button mat-menu-item (click)="openDialogProfil()">
+                                <img src="/assets/manage.png">
+                                Profil 
+                            </button>
+                        <button (click)="onLogout()" mat-menu-item>
+                                <img src="/assets/logout.png">
+                                Logout
+                            </button>
+                    </mat-menu>
+
+                </li>
+
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

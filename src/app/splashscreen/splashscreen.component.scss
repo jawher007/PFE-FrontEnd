@@ -1,0 +1,51 @@
+.app-splash-screen {
+    background: rgb(80, 47, 136);
+    background: linear-gradient(90deg, rgba(80, 47, 136, 1) 29%, rgba(48, 157, 216, 1) 53%, rgba(135, 189, 52, 1) 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    transition: left 0.5s;
+}
+
+.app-label {
+    margin-top: 32px;
+    color: #fff;
+    font-size: 2.5em;
+    font-family: "Pacifico", cursive;
+}
+
+.app-splash-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-logo {
+    background: url("/assets/ced.png");
+    background-repeat: no-repeat;
+    max-width: 100%;
+    background-position: center;
+    background-size: contain;
+    width: 300px;
+    height: 200px;
+}
+
+.app-loader {
+    background: url("/assets/three-dots.svg");
+    background-repeat: no-repeat;
+    max-width: 100%;
+    background-position: center;
+    background-size: contain;
+    width: 80px;
+    height: 80px;
+    margin-top: 80px;
+}

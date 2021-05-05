@@ -1,0 +1,108 @@
+.wrapper {
+    display: grid;
+    grid-auto-rows: minmax(50px, 500px, auto);
+    grid-gap: 1em;
+    //  background: rgb(205, 172, 248);
+}
+
+.colorcard {
+    background: #D5D8DC
+}
+
+.colorea {
+    display: grid;
+    grid-template-columns: 33% 33% 34%;
+}
+
+.nestedgeneralinfo1 {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    //@
+    background: white;
+    //  background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    z-index: 10;
+    backdrop-filter: blur(2rem);
+}
+
+.nestedgeneralinfo {
+    margin-top: 58px;
+    display: grid;
+    grid-template-rows: 1fr;
+    //@
+    background: white;
+    //  background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    z-index: 10;
+    backdrop-filter: blur(2rem);
+}
+
+.size-image {
+    width: 600px;
+    height: 350px;
+}
+
+.text {
+    color: gray;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.img {
+    width: 25px;
+    height: 25px;
+}
+
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+button.collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
+.active,
+.collapsible:hover {
+    background-color: #ccc;
+}
+
+
+/* Style the collapsible content. Note: hidden by default */
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+.v {
+    color: #502F88;
+}
+
+.b {
+    color: #309DD8
+}
+
+.g {
+    color: #87BD34
+}
+
+.video-js {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,43 @@
+<div class="imggrid">
+    <div> </div>
+    <div>
+        <img class="img" src="/assets/output-onlinepngtools.png">
+    </div>
+
+</div>
+
+
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="userName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> userName </th>
+            <td class="tdcolor" mat-cell *matCellDef="let row"> {{row.userName}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
+            <td class="tdcolor" mat-cell *matCellDef="let row"> {{row.email}} </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

@@ -1,0 +1,359 @@
+.wrapper {
+    display: grid;
+    grid-auto-rows: 225px 1fr;
+    grid-gap: 1em;
+}
+
+.nested {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-gap: 1em;
+}
+
+.nestedgeneralinfo {
+    margin-top: 58px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+    //@
+    background: white;
+    background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    z-index: 10;
+    backdrop-filter: blur(2rem);
+}
+
+.nestedgeneralinfo1 {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    //@
+    background: white;
+    background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    z-index: 10;
+    backdrop-filter: blur(2rem);
+}
+
+.colore {
+    width: 100%;
+    height: 100%;
+}
+
+.colorea {
+    display: grid;
+    grid-template-columns: 33% 33% 34%;
+}
+
+.text {
+    font-weight: bold;
+}
+
+.textpassed {
+    font-weight: bold;
+    color: rgba(26, 243, 26, 0.815);
+}
+
+.textfailed {
+    font-weight: bold;
+    color: rgba(248, 46, 46, 0.815);
+}
+
+.image {
+    width: 25px;
+    height: 25px;
+}
+
+.size-image {
+    width: 600px;
+    height: 350px;
+}
+
+.text1 {
+    font-weight: bold;
+    overflow: scroll;
+    background: white;
+    background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    //display: flex;
+    // flex-direction: column;
+    // justify-content: space-evenly;
+    //  text-align: center;
+    margin-left: -14px;
+}
+
+:host.is-standalone aside {
+    display: none;
+}
+
+:host.is-standalone .player-container {
+    padding: 0;
+    margin: 0;
+}
+
+aside {
+    background-color: #507EB3;
+    height: 100%;
+    position: fixed;
+}
+
+.logo {
+    padding: 10px;
+}
+
+.menu {
+    width: 250px;
+    height: 100%;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.menu li {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.menu li.is-active,
+.menu li:hover {
+    background-color: #FFFFFF;
+    color: #507EB3;
+}
+
+.player-container {
+    width: 100%;
+    height: 100%;
+    margin-left: 300px;
+    margin-right: 50px;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+}
+
+.flexboxvideo {
+    display: flex;
+    flex-flow: row;
+}
+
+.flexboxvideo-items {
+    margin-left: 10px;
+}
+
+.flexboxvideo-items:hover {
+    border: 1px solid #888;
+    background-color: #ddd;
+}
+
+#btn {
+    background: #222;
+    height: 50px;
+    min-width: 50px;
+    border: none;
+    border-radius: 10px;
+    color: #eee;
+    font-size: 40px;
+    font-family: 'Cookie', cursive;
+    position: relative;
+    transition: 1s;
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding-top: 5px;
+}
+
+#btn #circle {
+    width: 5px;
+    height: 5px;
+    background: transparent;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    overflow: hidden;
+    transition: 500ms;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#btn:hover {
+    background: transparent;
+}
+
+#btn:hover #circle {
+    height: 50px;
+    width: 50px;
+    left: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #eee;
+}
+
+.cardmax {
+    height: 446px;
+}
+
+// vgplayer
+[class^="vg-icon-"],
+[class*=" vg-icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'videogular' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    font-size: 24px;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.vg-icon-closed_caption:before {
+    content: "\e006";
+}
+
+.vg-icon-pause:before {
+    content: "\e018";
+}
+
+.vg-icon-play_arrow:before {
+    content: "\e01b";
+}
+
+.vg-icon-repeat:before {
+    content: "\e023";
+}
+
+.vg-icon-replay:before {
+    content: "\e025";
+}
+
+.vg-icon-skip_next:before {
+    content: "\e027";
+}
+
+.vg-icon-skip_previous:before {
+    content: "\e028";
+}
+
+.vg-icon-stop:before {
+    content: "\e02a";
+}
+
+.vg-icon-volume_down:before {
+    content: "\e030";
+}
+
+.vg-icon-volume_mute:before {
+    content: "\e031";
+}
+
+.vg-icon-volume_off:before {
+    content: "\e032";
+}
+
+.vg-icon-volume_up:before {
+    content: "\e033";
+}
+
+.vg-icon-hd:before {
+    content: "\e035";
+}
+
+.vg-icon-forward_10:before {
+    content: "\e038";
+}
+
+.vg-icon-forward_30:before {
+    content: "\e039";
+}
+
+.vg-icon-replay_10:before {
+    content: "\e03b";
+}
+
+.vg-icon-replay_30:before {
+    content: "\e03c";
+}
+
+.vg-icon-fullscreen:before {
+    content: "\e20c";
+}
+
+.vg-icon-fullscreen_exit:before {
+    content: "\e20d";
+}
+
+vg-player video {
+    width: 100%;
+    height: 100%;
+}
+
+.browser {
+    margin-left: 79px;
+}
+
+.flexing {
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    height: auto;
+    width: 97%;
+}
+
+.text {
+    color: gray;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.h2 {
+    color: rgb(70, 179, 230);
+}
+
+.buttonimg {
+    height: 17px;
+    width: 17px;
+    margin-left: 133px;
+    background: url("/assets/test.png");
+    background-size: cover;
+    border: 0;
+}
+
+.passed {
+    color: rgb(49, 214, 49) !important;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+}
+
+.navbar {
+    width: auto;
+    height: 50px;
+    background: rgb(52, 158, 219);
+}
+
+.textnavbar {
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+    display: inline;
+}
+
+.stat {
+    font-weight: bold;
+    font-style: oblique;
+    display: inline;
+}

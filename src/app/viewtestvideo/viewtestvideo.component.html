@@ -1,0 +1,98 @@
+<cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport"></cdk-virtual-scroll-viewport>
+<mat-card class="colorcard">
+    <div class="wrapper">
+
+        <mat-card> <button type="button" class="collapsible">Browser Capibilities</button>
+            <div class="content">
+                <br>
+                <p class="v">{{sessionvideo.cap1}}</p>
+                <p class="b">{{sessionvideo.cap2}}</p>
+                <p class="g">{{sessionvideo.cap3}}</p>
+                <p class="v">{{sessionvideo.cap4}}</p>
+                <p class="b">{{sessionvideo.cap5}}</p>
+                <p class="g">{{sessionvideo.cap6}}</p>
+                <p class="v">{{sessionvideo.cap7}}</p>
+                <p class="b">{{sessionvideo.cap8}}</p>
+            </div>
+        </mat-card>
+        <mat-card>
+            <div id="instructions">
+                <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px" controls preload="none" data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
+            <source *ngIf="testvideo?.videolink" [src]="testvideo.videolink" type="video/mp4" />	
+            
+        </video></div>
+        </mat-card>
+
+        <mat-card class="nestedgeneralinfo">
+            <table class="table">
+
+                <tbody>
+                    <tr>
+                        <td><img src="/assets/step.png"> {{testvideo.step1}}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><img src="/assets/step.png"> {{testvideo.step2}}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><img class="size-image" *ngIf="testvideo?.screen1" [src]="testvideo.screen1"></td>
+                        <td>{{testvideo.time1}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step3}}</td>
+                    </tr>
+                    <tr>
+                        <td><img class="size-image" *ngIf="testvideo?.screen2" [src]="testvideo.screen2"></td>
+                        <td>{{testvideo.time2}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step4}}</td>
+                    </tr>
+                    <tr>
+                        <td><img class="size-image" *ngIf="testvideo?.screen3" [src]="testvideo.screen3"></td>
+                        <td>{{testvideo.time3}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step5}}</td>
+                    </tr>
+                    <tr>
+                        <td><img class="size-image" *ngIf="testvideo?.screen4" [src]="testvideo.screen4"></td>
+                        <td>{{testvideo.time4}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step6}}</td>
+                    </tr>
+                    <tr>
+                        <td><img class="size-image" *ngIf="testvideo?.screen5" [src]="testvideo.screen5"></td>
+                        <td>{{testvideo.time5}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step7}}</td>
+                    </tr>
+                    <tr>
+                        <td><img class="size-image" *ngIf="testvideo?.screen6" [src]="testvideo.screen6"></td>
+                        <td>{{testvideo.time6}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step8}}</td>
+                    </tr>
+                    <tr>
+                        <td><img class="size-image" *ngIf="testvideo?.screen7" [src]="testvideo.screen7"></td>
+                        <td>{{testvideo.time7}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step9}}</td>
+                    </tr>
+                    <tr>
+                        <td><img class="size-image" *ngIf="testvideo?.screen8" [src]="testvideo.screen8"></td>
+                        <td>{{testvideo.time8}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step10}}</td>
+                    </tr>
+                    <tr>
+                        <td><img class="size-image" *ngIf="testvideo?.screen9" [src]="testvideo.screen9"></td>
+                        <td>{{testvideo.time9}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step11}}</td>
+                    </tr>
+                    <tr>
+                        <td><img class="size-image" *ngIf="testvideo?.screen10" [src]="testvideo.screen10"></td>
+                        <td>{{testvideo.time10}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step12}}</td>
+                    </tr>
+                    <tr>
+                        <td><img class="size-image" *ngIf="testvideo?.screen11" [src]="testvideo.screen11"></td>
+                        <td>{{testvideo.time11}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step13}}</td>
+                    </tr>
+                    <tr>
+                        <td><img class="size-image" *ngIf="testvideo?.screen12" [src]="testvideo.screen12"></td>
+                        <td>{{testvideo.time12}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step14}}</td>
+                    </tr>
+                    <tr>
+                        <td><img src="/assets/step.png"> {{testvideo.step15}} </td>
+                        <td>{{testvideo.durationsec}}<img src="/assets/timer.png"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </mat-card>
+    </div>
+</mat-card>
