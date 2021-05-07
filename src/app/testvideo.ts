@@ -74,4 +74,5 @@ export class TestVideo{
     startedAt: string;
     durationsec: string;
     durationmin: string;
+    videolink:string;
 }

@@ -37,8 +37,8 @@
 }
 
 .size-image {
-    width: 600px;
-    height: 350px;
+    width: 300px;
+    height: 200px;
 }
 
 .text {
@@ -105,4 +105,23 @@ button.collapsible:after {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.buttonpdf {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-weight: 400;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.cont {
+    margin-top: 50px;
+    width: 1000px;
+    height: 10000px;
 }
