@@ -13,7 +13,7 @@ import { Option } from "../../../Option.model";
 import { ThemeService } from "../../../theme.service";
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
+import  io from 'socket.io-client' ;
 
 
 
@@ -25,19 +25,31 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  load=false;
   disable:string;
   ifscreen:string;
   username;
+  showme:string='DISABLED';
   myControl = new FormControl();
   options_auto: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;
   options$: Observable<Array<Option>> = this.themeService.getThemeOptions();
-
+  socket=io('http://localhost:8000/');
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
   constructor(private readonly themeService: ThemeService,private router: Router,public dialog: MatDialog) {}
 
   ngOnInit() { 
+
+    this.socket.on('connect',function(){ /// if socket connected == true then HitApi 
+      console.log('socket connected');
+      
+    })
+
+    this.socket.on('event2', data => {
+    this.showme='ENABLED';
+    this.load=true;
+    });
     this.disable=sessionStorage.getItem('showbutton');
     this.username=sessionStorage.getItem('username');
     this.themeService.setTheme("indigo-pink");

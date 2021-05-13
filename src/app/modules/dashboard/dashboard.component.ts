@@ -17,7 +17,7 @@ import { MatDialog } from '@angular/material';
 
 
 export class DashboardComponent implements OnInit {
-
+  
   testvideo:TestVideo[]=[];
   sessionvideo:SessionVideo;
 
@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
 
  
   ngOnInit() {
+   
 
    
 this.sessionsshow();

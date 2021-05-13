@@ -22,10 +22,10 @@
                 <li>
                     <mat-card class="md-card-thread">
                         <div>
-                            <span> <img src="assets/data_saver_off-24px.svg"></span>
+                            <span>  <img [class.image] = "load"  src="assets/data_saver_off-24px.svg"></span>
                             <mat-label class="color-label-nav-bar"> |Parallel threads| </mat-label>
                             <mat-label class="color-label-nav-bar"> :</mat-label>
-                            <mat-label class="color-label-nav-bar"> ENABLED</mat-label>
+                            <mat-label class="color-label-nav-bar"> {{showme}}</mat-label>
 
                         </div>
                     </mat-card>

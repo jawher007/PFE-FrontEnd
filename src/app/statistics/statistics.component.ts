@@ -126,12 +126,14 @@ export class StatisticsComponent implements OnInit {
       this.testvideoService.getTestbyStatus("passed").subscribe(data => {
        
         this.testsessions = data as TestVideo[];
-        for (let iter of this.testsessions) {
+     
     
-          
-    this.passed++;
-        }
+         console.log( this.passed);
+    this.passed=this.testsessions.length;
+  
+        
       });
+      
       }
     
     
@@ -143,7 +145,9 @@ export class StatisticsComponent implements OnInit {
         for (let iter of this.testsessions) {
     
           
-    this.failed++;
+     console.log(this.failed);
+     this.failed=this.testsessions.length;
+  
         }
       });
       }

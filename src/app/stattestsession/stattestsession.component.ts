@@ -125,11 +125,10 @@ getAllTestPassed(){
   this.testsessionService.getTestbyStatus("passed").subscribe(data => {
    
     this.testsessions = data as Testsession[];
-    for (let iter of this.testsessions) {
-
-      
-this.passed++;
-    }
+    
+    
+this.passed=this.testsessions.length;
+    
   });
   }
 
@@ -139,11 +138,10 @@ getAllTestFailed(){
   this.testsessionService.getTestbyStatus("failed").subscribe(data => {
    
     this.testsessions = data as Testsession[];
-    for (let iter of this.testsessions) {
-
+   
       
-this.failed++;
-    }
+this.failed=this.testsessions.length
+  
   });
   }
 
