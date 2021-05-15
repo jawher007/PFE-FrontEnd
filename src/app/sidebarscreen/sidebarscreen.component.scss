@@ -64,11 +64,8 @@
         border: 2px solid;
         border-color: rgb(55, 177, 214);
     }
-    .mat-card:nth-child(even) {
-        background-color: #F0F0F0;
-    }
-    .mat-card:hover {
-        background-color: #C0C0C0;
+    .mat-card:nth-child(odd) {
+        background-color: #dddddd;
     }
     .mat-card:hover {
         border: 1px solid #888;

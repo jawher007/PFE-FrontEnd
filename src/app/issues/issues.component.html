@@ -6,5 +6,6 @@
     <div class="form-group">
         <textarea type="text" class="form-control" id="issuetext" required [(ngModel)]="issue.issuetext" name="issuetext" aria-required="true"></textarea>
     </div>
-    <button type="submit" mat-stroked-button color="accent" class="btn-block">Send</button>
+    <button *ngIf="disable==='able'" type="submit" mat-stroked-button color="accent" class="btn-block">Send</button>
+    <button *ngIf="disable==='disable'" type="submit" mat-stroked-button color="accent" class="btn-block" disabled>Send</button>
 </form>

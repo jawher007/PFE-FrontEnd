@@ -113,7 +113,7 @@ export class HeaderComponent implements OnInit {
 
   openDialogProfil(): void {
     const dialogRef = this.dialog.open(ProfilComponent, {
-      width: '1200px',
+      width: '400px',
       
     });
 

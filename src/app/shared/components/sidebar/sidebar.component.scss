@@ -60,7 +60,10 @@
         border-color: rgb(55, 177, 214);
     }
     .mat-card:nth-child(even) {
-        background-color: #F0F0F0;
+        background-color: #dddddd;
+    }
+    .mat-card:nth-child(odd) {
+        background-color: #dddddd;
     }
     .mat-card:hover {
         background-color: #C0C0C0;

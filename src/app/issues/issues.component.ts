@@ -11,9 +11,11 @@ export class IssuesComponent implements OnInit {
   issuetext;
   issue: Issue = new Issue();
   submitted = false;
+  disable:string;
   constructor(private feedbackService: FeedbackService) { }
 
   ngOnInit() {
+    this.disable=sessionStorage.getItem('showbutton');
   }
 
   save() {
