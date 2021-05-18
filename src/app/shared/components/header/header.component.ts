@@ -14,7 +14,7 @@ import { ThemeService } from "../../../theme.service";
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import  io from 'socket.io-client' ;
-
+import Swal from 'sweetalert2';
 
 
 
@@ -40,16 +40,8 @@ export class HeaderComponent implements OnInit {
   constructor(private readonly themeService: ThemeService,private router: Router,public dialog: MatDialog) {}
 
   ngOnInit() { 
-
-    this.socket.on('connect',function(){ /// if socket connected == true then HitApi 
-      console.log('socket connected');
-      
-    })
-
-    this.socket.on('event2', data => {
-    this.showme='ENABLED';
-    this.load=true;
-    });
+this.Socket();
+    
     this.disable=sessionStorage.getItem('showbutton');
     this.username=sessionStorage.getItem('username');
     this.themeService.setTheme("indigo-pink");
@@ -176,6 +168,39 @@ export class HeaderComponent implements OnInit {
    if(this.ifscreen==='video'){
     this.router.navigate(['/home']);
    }
+      }
+
+      Socket(){
+        this.socket.on('connect',function(){ /// if socket connected == true then HitApi 
+          console.log('socket connected');
+          
+        }) ; 
+    
+        this.socket.on('event2', data => {
+        this.showme='ENABLED';
+        this.load=true;
+        });
+
+        this.socket.on('disconnect',()=>{ /// if socket connected == true then HitApi
+          console.log('socket disconnected'); 
+          let currentUrl = this.router.url;
+          this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+          this.router.navigate([currentUrl]));
+ 
+        Swal.fire({
+          toast: true,
+         position: "bottom-end",
+          icon: "info",
+          title: 'Test finished',
+          timerProgressBar: true,
+          showConfirmButton: false,
+          timer: 4000,
+          onOpen: toast => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          }
+        });
+      }) ; 
       }
   
   
