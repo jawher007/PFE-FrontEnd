@@ -27,6 +27,7 @@
         width: 100%;
         height: 100%;
         display: inline-block;
+        color: rgb(34, 32, 32);
     }
     .button-parent:hover {
         border: 1px solid #888;
@@ -64,11 +65,14 @@
         border: 2px solid;
         border-color: rgb(55, 177, 214);
     }
+    .mat-card:nth-child(even) {
+        background-color: #EAEDED;
+    }
     .mat-card:nth-child(odd) {
-        background-color: #dddddd;
+        background-color: #D5DBDB;
     }
     .mat-card:hover {
-        border: 1px solid #888;
-        background-color: #ddd;
+        border: 1px solid #828385;
+        background-color: #AEB6BF;
     }
 }
