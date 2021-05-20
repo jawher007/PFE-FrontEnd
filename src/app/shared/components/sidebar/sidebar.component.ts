@@ -6,7 +6,7 @@ import { Test } from './../../../Test';
 import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { Observable,Subscription } from "rxjs";
 import { Router } from '@angular/router';
-
+import  io from 'socket.io-client' ;
 
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import * as $ from 'jquery';
@@ -18,7 +18,8 @@ import * as $ from 'jquery';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-
+  load=false;
+socket=io('http://localhost:8000/');
 tests:SessionVideo[] = [];
 indexmat:string;
 idindex:number;
@@ -26,6 +27,22 @@ test:SessionVideo;
   constructor(private dashboardService: DashboardService,private router: Router,private datasharingservice:DatasharingService,private testvideoService:TestvideoService) { }
 
   ngOnInit() {
+
+    // SOCKET 
+
+    this.socket.on('connect',function(){ /// if socket connected == true then HitApi 
+      console.log('socket connected');
+      
+    })
+
+    this.socket.on('event2', data => {
+
+      this.load=true;
+    });
+
+
+    // END SOCKET
+
     sessionStorage.setItem('showbutton',"able");
     this.indexmat=sessionStorage.getItem('indexof');
     this.idindex=+this.indexmat;

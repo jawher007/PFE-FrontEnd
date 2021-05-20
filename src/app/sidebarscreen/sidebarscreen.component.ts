@@ -6,13 +6,15 @@ import { Observable,Subscription } from "rxjs";
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-
+import  io from 'socket.io-client' ;
 @Component({
   selector: 'app-sidebarscreen',
   templateUrl: './sidebarscreen.component.html',
   styleUrls: ['./sidebarscreen.component.scss']
 })
 export class SidebarscreenComponent implements OnInit {
+  load=false;
+socket=io('http://localhost:8000/');
   sessions:Session[] = [];
   session:Session;
   indexmat;
@@ -21,6 +23,22 @@ export class SidebarscreenComponent implements OnInit {
   constructor(private sessionService:SessionService,private router:Router,private testsession:TestsessionService) { }
 
   ngOnInit() {
+
+
+     // SOCKET 
+
+     this.socket.on('connect',function(){ /// if socket connected == true then HitApi 
+      console.log('socket connected');
+      
+    })
+
+    this.socket.on('event2', data => {
+
+      this.load=true;
+    });
+
+
+    // END SOCKET
 
     sessionStorage.setItem('showbutton',"able");
      

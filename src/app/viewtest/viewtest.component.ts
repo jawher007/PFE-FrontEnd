@@ -81,9 +81,12 @@ export class ViewtestComponent implements OnInit {
 
   }
   generatePdf() {
+    console.log("0 %");
     const doc = new jsPDF('l');
     // Heading
+    console.log("5 %");
     (doc as any).autoTable({
+      
       columnStyles: {
         0: { cellWidth: 40, fillColor: '#fff', fontStyle: 'bold', fontSize: '11', textColor: '#000' },
         1: { cellWidth: 20, fillColor: '#fff', fontStyle: 'normal', fontSize: '11', textColor: '#fc0' },
@@ -123,17 +126,17 @@ export class ViewtestComponent implements OnInit {
           // let dim = data.cell.height - data.cell.padding('vertical');
           // let textPos = data.cell.textPos;
           doc.addImage(img.src, data.cell.x + 1, data.cell.y + 1, 95, 77);
- 
+          console.log("50 %");
         }
-        
+        console.log("75 %");
       }
     });
  
-   
+    console.log("90 %");
   
  
     doc.save('TestCase.pdf');
- 
+    console.log("100 %");
   }
 
 

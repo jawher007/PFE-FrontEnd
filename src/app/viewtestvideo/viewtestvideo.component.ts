@@ -23,33 +23,10 @@ export class ViewtestvideoComponent implements OnInit {
   idsession: number;
   doc: jsPDF;
 
-  tabledata = [{
-    img: 'https://i.picsum.photos/id/258/536/354.jpg',
-    name: 'Joseph',
-    domain: 'Angular 9'
-  },
-  {
-    img: 'https://i.picsum.photos/id/258/536/354.jpg',
-    name: 'Vani',
-    domain: 'Angular 8'
-  }, {
-    img: 'https://i.picsum.photos/id/258/536/354.jpg',
-    name: 'Raj',
-    domain: 'React.js'
-  },
-  ];
-
- 
   @ViewChild('myTemp', { static: false }) myTempRef: ElementRef;
-
-
 
   constructor(private testvideoService: TestvideoService, private dashboardService: DashboardService) { }
   
-  
-
-
-
   ngOnInit() {
     
 
@@ -107,31 +84,7 @@ export class ViewtestvideoComponent implements OnInit {
 
 
   }
-  /*
-  generatePdfa() {
-    var pdf = new jsPDF();
-
-    pdf.setFontSize(15);
-    pdf.text('Angular PDF Table', 11, 8);
-    pdf.setFontSize(12);
-    pdf.setTextColor(99);
-
-
-    (pdf as any).autoTable({
-    head: "this.header",
-    body: this.tableData,
-    theme: 'plain',
-    didDrawCell: data => {
-        console.log(data.column.index)
-    }
-    })
-
-    // Open PDF document in browser's new tab
-    pdf.output('dataurlnewwindow')
-
-    // Download PDF doc  
-    pdf.save('table.pdf');
-}  */
+  
 
 
   
@@ -197,31 +150,7 @@ generatePdf() {
 
 
  
-  /*
-  
-    generatePdf() {
-      var imgData;
-    
-      for(var i=0;i<this.images.length;i++){
-      var div = document.getElementById('img'+i);
-      const options = { background: "white", height: div.clientHeight, width: div.clientWidth };
-      
-      html2canvas(div).then((canvas) => {
-        //Initialize JSPDF
-        let doc = new jsPDF();
-        //Converting canvas to Image
-        imgData = canvas.toDataURL("image/PNG");
-        //Add image Canvas to PDF
-        doc.addImage(imgData, "JPG", 10, (i+1)*10, 180, 150);
-  
-        doc.addPage();
-        doc.save('Test.pdf');
-      });
-     
-    
-    }
-   
-    }*/
+ 
 
 
   
