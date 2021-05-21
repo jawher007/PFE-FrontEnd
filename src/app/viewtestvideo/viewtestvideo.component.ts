@@ -14,6 +14,7 @@ import 'jspdf-autotable';
   styleUrls: ['./viewtestvideo.component.scss']
 })
 export class ViewtestvideoComponent implements OnInit {
+  showbutton:boolean;
   sessionvideo: SessionVideo;
   testvideo: TestVideo;
   idsessiontest: number;
@@ -90,10 +91,47 @@ export class ViewtestvideoComponent implements OnInit {
   
  
 
-generatePdf() {
+  generatePdf():void {
+
+    new Promise<void>((resolve) => {
+      setTimeout(()=>{
+        this.showbutton=true;
+        resolve();
+      }
+      ,500);
+
+    })
+    .then(_=> new Promise<void>(resolve => {
+      setTimeout(()=>{
+        this.pdf();
+        resolve();
+      }
+      ,250);
+      })
+    )
+    .then(_=> new Promise<void>(resolve => {
+      this.showbutton=false;
+      })
+    );
+
+
+    
+
+
+    
+
+  }
+
+
+  pdf(){
     const doc = new jsPDF('l');
     // Heading
+    console.log("5 %");
+    this.ngOnInit();
+    this.showbutton=true ;
+    console.log(this.showbutton);
     (doc as any).autoTable({
+      
       columnStyles: {
         0: { cellWidth: 40, fillColor: '#fff', fontStyle: 'bold', fontSize: '11', textColor: '#000' },
         1: { cellWidth: 20, fillColor: '#fff', fontStyle: 'normal', fontSize: '11', textColor: '#fc0' },
@@ -101,7 +139,7 @@ generatePdf() {
  
       }, // Cells in first column centered and green
       body: [
-        ['Test Case with VideoRecording', 'Date', new Date()]
+        ['Test Case with Screenshots', 'Date', new Date()]
       ],
     });
      // Table 1
@@ -133,17 +171,16 @@ generatePdf() {
           // let dim = data.cell.height - data.cell.padding('vertical');
           // let textPos = data.cell.textPos;
           doc.addImage(img.src, data.cell.x + 1, data.cell.y + 1, 95, 77);
- 
+          console.log("50 %");
         }
-        
+        console.log("75 %");
       }
     });
  
-   
+    console.log("90 %");
   
  
     doc.save('TestCase.pdf');
- 
   }
 
 }

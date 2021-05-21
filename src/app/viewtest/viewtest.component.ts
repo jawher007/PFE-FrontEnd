@@ -13,10 +13,9 @@ import 'jspdf-autotable';
   styleUrls: ['./viewtest.component.scss']
 })
 export class ViewtestComponent implements OnInit {
-
+  showbutton:boolean;
   session:Session;
   testsession: Testsession;
-
   sessionid: string;
   testrank: string;
   sessionidtest:string;
@@ -80,11 +79,45 @@ export class ViewtestComponent implements OnInit {
 
 
   }
-  generatePdf() {
-    console.log("0 %");
+  generatePdf():void {
+
+    new Promise<void>((resolve) => {
+      setTimeout(()=>{
+        this.showbutton=true;
+        resolve();
+      }
+      ,500);
+
+    })
+    .then(_=> new Promise<void>(resolve => {
+      setTimeout(()=>{
+        this.pdf();
+        resolve();
+      }
+      ,250);
+      })
+    )
+    .then(_=> new Promise<void>(resolve => {
+      this.showbutton=false;
+      })
+    );
+
+
+    
+
+
+    
+
+  }
+
+
+  pdf(){
     const doc = new jsPDF('l');
     // Heading
     console.log("5 %");
+    this.ngOnInit();
+    this.showbutton=true ;
+    console.log(this.showbutton);
     (doc as any).autoTable({
       
       columnStyles: {
@@ -136,7 +169,6 @@ export class ViewtestComponent implements OnInit {
   
  
     doc.save('TestCase.pdf');
-    console.log("100 %");
   }
 
 

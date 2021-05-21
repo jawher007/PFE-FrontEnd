@@ -1,15 +1,20 @@
 <cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport"></cdk-virtual-scroll-viewport>
 
-<div class="same"><button class="btn btn-success image" (click)="generatePdf()">Export to PDF</button>
-    <div class="loadingio-spinner-dual-ball-ch9ggzcuvhk">
-        <div class="ldio-fquply7zed">
-            <div></div>
-            <div></div>
-            <div></div>
+<div class="same">
+    <div class="same"><button class="btn btn-success image" (click)="generatePdf()">Export to PDF</button>
+        <div *ngIf="showbutton" class="same1">
+            <div class="loadingio-spinner-dual-ball-ch9ggzcuvhk">
+                <div class="ldio-fquply7zed">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <p class="par">Please wait ...</p>
+
         </div>
     </div>
-    <div class="image">
-        <p class="par"></p>Please wait ...</div>
 </div>
 <mat-card class="colorcard">
 
