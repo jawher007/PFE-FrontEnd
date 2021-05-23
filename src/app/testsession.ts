@@ -74,4 +74,5 @@ export class Testsession {
     startedAt:string;
     durationsec:string;
     durationmin:string;
+  checked: any;
 }

@@ -20,6 +20,9 @@ import { VgBufferingModule } from 'videogular2/buffering';
 import { VgCoreModule } from 'videogular2/core';
 import { VgControlsModule } from 'videogular2/controls';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { FormsModule } from '@angular/forms';
+
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -43,6 +46,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     
   ],
   imports: [
+    BrowserModule,
+    FormsModule,
     VgBufferingModule,
     VgCoreModule,
     VgControlsModule,

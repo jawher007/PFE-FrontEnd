@@ -14,6 +14,7 @@ import 'jspdf-autotable';
   styleUrls: ['./viewtestvideo.component.scss']
 })
 export class ViewtestvideoComponent implements OnInit {
+  showsuccess:boolean;
   showbutton:boolean;
   sessionvideo: SessionVideo;
   testvideo: TestVideo;
@@ -23,6 +24,7 @@ export class ViewtestvideoComponent implements OnInit {
   sessionid: string;
   idsession: number;
   doc: jsPDF;
+  contentup:boolean;
 
   @ViewChild('myTemp', { static: false }) myTempRef: ElementRef;
 
@@ -39,32 +41,20 @@ export class ViewtestvideoComponent implements OnInit {
     this.show();
     this.getBySession();
 
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
+    
+  }
 
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
+  toggle(){
+    
+    if ( this.contentup===true){
+      this.contentup=false ;
+    }else {
+      this.contentup=true ;
     }
+
   }
 
-  getBase64Image(img) {
-    var canvas = document.createElement("canvas");
-    console.log("image");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-    var dataURL = canvas.toDataURL("image/png");
-    return dataURL;
-  }
+  
 
   getBySession() {
     this.dashboardService.getSessionVideo(this.idsession)
@@ -80,6 +70,14 @@ export class ViewtestvideoComponent implements OnInit {
 
         this.testvideo = data;
         this.testvideo.screen1;
+
+        if (this.testvideo.teststatus === 'passed') {
+          this.showsuccess = true;
+        }
+
+        else {
+          this.showsuccess = false;
+        }
 
       }, error => console.log(error));
 

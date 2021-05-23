@@ -13,34 +13,22 @@ import 'jspdf-autotable';
   styleUrls: ['./viewtest.component.scss']
 })
 export class ViewtestComponent implements OnInit {
-  showbutton:boolean;
-  session:Session;
+  showsuccess:boolean;
+  showbutton: boolean;
+  session: Session;
   testsession: Testsession;
   sessionid: string;
   testrank: string;
-  sessionidtest:string;
-
+  sessionidtest: string;
+  contentup:boolean;
   idsession: number;
-  idsessiontest:number;
+  idsessiontest: number;
 
   constructor(private SessionService: SessionService, private testsessionservice: TestsessionService) { }
 
   ngOnInit() {
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
     
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
-    }
-    
+
     this.sessionidtest = sessionStorage.getItem('sessionidtest');
     this.sessionid = sessionStorage.getItem('sessionid');
     this.testrank = sessionStorage.getItem('testrank');
@@ -52,13 +40,23 @@ export class ViewtestComponent implements OnInit {
     this.geTestSession();
   }
 
+  toggle(){
+    
+    if ( this.contentup===true){
+      this.contentup=false ;
+    }else {
+      this.contentup=true ;
+    }
+
+  }
+
 
   getBySession() {
     this.SessionService.getSession(this.idsession)
       .subscribe(data => {
 
         this.session = data;
-      //  this.ngOnInit();
+  
 
       }, error => console.log(error));
 
@@ -72,66 +70,76 @@ export class ViewtestComponent implements OnInit {
       .subscribe(data => {
 
         this.testsession = data;
-     //   this.ngOnInit();
+
+        if (this.testsession.teststatus === 'passed') {
+          this.showsuccess = true;
+        }
+
+        else {
+          this.showsuccess = false;
+        }
+
+
 
       }, error => console.log(error));
 
 
 
   }
-  generatePdf():void {
+  
+  generatePdf(): void {
 
     new Promise<void>((resolve) => {
-      setTimeout(()=>{
-        this.showbutton=true;
+      setTimeout(() => {
+        this.showbutton = true;
         resolve();
       }
-      ,500);
+        , 500);
 
     })
-    .then(_=> new Promise<void>(resolve => {
-      setTimeout(()=>{
-        this.pdf();
-        resolve();
-      }
-      ,250);
+      .then(_ => new Promise<void>(resolve => {
+        setTimeout(() => {
+          this.pdf();
+          resolve();
+        }
+          , 250);
       })
-    )
-    .then(_=> new Promise<void>(resolve => {
-      this.showbutton=false;
+      )
+      .then(_ => new Promise<void>(resolve => {
+        this.showbutton = false;
       })
-    );
+      );
 
 
-    
 
 
-    
+
+
 
   }
 
 
-  pdf(){
+  pdf() {
     const doc = new jsPDF('l');
     // Heading
     console.log("5 %");
     this.ngOnInit();
-    this.showbutton=true ;
+    this.showbutton = true;
     console.log(this.showbutton);
     (doc as any).autoTable({
-      
+
       columnStyles: {
         0: { cellWidth: 40, fillColor: '#fff', fontStyle: 'bold', fontSize: '11', textColor: '#000' },
         1: { cellWidth: 20, fillColor: '#fff', fontStyle: 'normal', fontSize: '11', textColor: '#fc0' },
         2: { fillColor: '#fff', fontStyle: 'normal', fontSize: '11', textColor: '#000' },
- 
+
       }, // Cells in first column centered and green
       body: [
         ['Test Case with Screenshots', 'Date', new Date()]
       ],
     });
-     // Table 1
-     (doc as any).autoTable({
+    // Table 1
+    (doc as any).autoTable({
       html: '#Testprops'
     });
     // Table 2
@@ -147,13 +155,13 @@ export class ViewtestComponent implements OnInit {
       pageBreak: 'avoid',
       columnStyles: {
         2: { cellWidth: 100, minCellHeight: 80 },
-     
+
       },
       headStyles: { fillColor: '#f2f2f2', textColor: '#000', fontStyle: 'bold', lineWidth: 0.5, lineColor: '#ccc' },
       didDrawCell: (data) => {
         const td = data.cell.raw;
         const img = td.getElementsByTagName('img')[0];
-        if (data.column.index === 2  && data.cell.section === 'body' && img !== undefined) {
+        if (data.column.index === 2 && data.cell.section === 'body' && img !== undefined) {
           const td = data.cell.raw;
           const img = td.getElementsByTagName('img')[0];
           // let dim = data.cell.height - data.cell.padding('vertical');
@@ -164,10 +172,10 @@ export class ViewtestComponent implements OnInit {
         console.log("75 %");
       }
     });
- 
+
     console.log("90 %");
-  
- 
+
+
     doc.save('TestCase.pdf');
   }
 

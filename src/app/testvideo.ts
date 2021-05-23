@@ -1,6 +1,6 @@
 export class TestVideo{
-    id: 0;
-    sessionid: 0;
+    id: number;
+    sessionid: number;
     teststatus: string;
     erreur: string;
     screen1: string;

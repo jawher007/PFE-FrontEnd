@@ -1,304 +1,307 @@
-<cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport"></cdk-virtual-scroll-viewport>
+<div *ngIf="showsuccess; else elseBlock">
+    <cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport"></cdk-virtual-scroll-viewport>
 
-<div class="same">
-    <div class="same"><button class="btn btn-success image" (click)="generatePdf()">Export to PDF</button>
-        <div *ngIf="showbutton" class="same1">
-            <div class="loadingio-spinner-dual-ball-ch9ggzcuvhk">
-                <div class="ldio-fquply7zed">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+    <div class="same">
+        <div class="same"><button class="btn btn-success image" (click)="generatePdf()">Export to PDF</button>
+            <div *ngIf="showbutton" class="same1">
+                <div class="loadingio-spinner-dual-ball-ch9ggzcuvhk">
+                    <div class="ldio-fquply7zed">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
+
+                <p class="par">Please wait ...</p>
+
             </div>
-
-            <p class="par">Please wait ...</p>
-
         </div>
     </div>
-</div>
-<mat-card class="colorcard">
+    <mat-card class="colorcard">
 
-    <div class="wrapper">
+        <div class="wrapper">
 
-        <mat-card> <button type="button" class="collapsible">Browser Capibilities</button>
-            <div class="content">
-                <br>
-                <p class="v">{{sessionvideo.cap1}}</p>
-                <p class="b">{{sessionvideo.cap2}}</p>
-                <p class="g">{{sessionvideo.cap3}}</p>
-                <p class="v">{{sessionvideo.cap4}}</p>
-                <p class="b">{{sessionvideo.cap5}}</p>
-                <p class="g">{{sessionvideo.cap6}}</p>
-                <p class="v">{{sessionvideo.cap7}}</p>
-                <p class="b">{{sessionvideo.cap8}}</p>
-            </div>
-        </mat-card>
-        <mat-card>
-            <div id="instructions">
-                <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px" controls preload="none" data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
+            <mat-card> <button type="button" class="collapsible" (click)="toggle()">Browser Capibilities</button>
+                <div *ngIf="contentup; else elseBlock1">
+                    <br>
+                    <p class="v">{{sessionvideo.cap1}}</p>
+                    <p class="b">{{sessionvideo.cap2}}</p>
+                    <p class="g">{{sessionvideo.cap3}}</p>
+                    <p class="v">{{sessionvideo.cap4}}</p>
+                    <p class="b">{{sessionvideo.cap5}}</p>
+                    <p class="g">{{sessionvideo.cap6}}</p>
+                    <p class="v">{{sessionvideo.cap7}}</p>
+                    <p class="b">{{sessionvideo.cap8}}</p>
+                </div>
+                <ng-template #elseBlock1> <br>
+
+                </ng-template>
+
+
+            </mat-card>
+            <mat-card>
+                <div id="instructions">
+                    <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px" controls preload="none" data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
             <source *ngIf="testvideo?.videolink" [src]="testvideo.videolink" type="video/mp4" />	
             
         </video></div>
-        </mat-card>
+            </mat-card>
 
-        <mat-card class="nestedgeneralinfo">
-            <table class="table">
+            <mat-card class="nestedgeneralinfo">
+                <table class="table">
 
-                <tbody>
-                    <tr>
-                        <td><img src="/assets/step.png"> {{testvideo.step1}}</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><img src="/assets/step.png"> {{testvideo.step2}}</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testvideo?.screen1" [src]="testvideo.screen1"></td>
-                        <td>{{testvideo.time1}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step3}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testvideo?.screen2" [src]="testvideo.screen2"></td>
-                        <td>{{testvideo.time2}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step4}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testvideo?.screen3" [src]="testvideo.screen3"></td>
-                        <td>{{testvideo.time3}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step5}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testvideo?.screen4" [src]="testvideo.screen4"></td>
-                        <td>{{testvideo.time4}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step6}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testvideo?.screen5" [src]="testvideo.screen5"></td>
-                        <td>{{testvideo.time5}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step7}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testvideo?.screen6" [src]="testvideo.screen6"></td>
-                        <td>{{testvideo.time6}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step8}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testvideo?.screen7" [src]="testvideo.screen7"></td>
-                        <td>{{testvideo.time7}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step9}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testvideo?.screen8" [src]="testvideo.screen8"></td>
-                        <td>{{testvideo.time8}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step10}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testvideo?.screen9" [src]="testvideo.screen9"></td>
-                        <td>{{testvideo.time9}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step11}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testvideo?.screen10" [src]="testvideo.screen10"></td>
-                        <td>{{testvideo.time10}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step12}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testvideo?.screen11" [src]="testvideo.screen11"></td>
-                        <td>{{testvideo.time11}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step13}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testvideo?.screen12" [src]="testvideo.screen12"></td>
-                        <td>{{testvideo.time12}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step14}}</td>
-                    </tr>
-                    <tr>
-                        <td><img src="/assets/step.png"> {{testvideo.step15}} </td>
-                        <td>{{testvideo.durationsec}}<img src="/assets/timer.png"></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td><img src="/assets/step.png"> {{testvideo.step1}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><img src="/assets/step.png"> {{testvideo.step2}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testvideo?.screen1" [src]="testvideo.screen1"></td>
+                            <td>{{testvideo.time1}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step3}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testvideo?.screen2" [src]="testvideo.screen2"></td>
+                            <td>{{testvideo.time2}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step4}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testvideo?.screen3" [src]="testvideo.screen3"></td>
+                            <td>{{testvideo.time3}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step5}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testvideo?.screen4" [src]="testvideo.screen4"></td>
+                            <td>{{testvideo.time4}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step6}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testvideo?.screen5" [src]="testvideo.screen5"></td>
+                            <td>{{testvideo.time5}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step7}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testvideo?.screen6" [src]="testvideo.screen6"></td>
+                            <td>{{testvideo.time6}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step8}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testvideo?.screen7" [src]="testvideo.screen7"></td>
+                            <td>{{testvideo.time7}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step9}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testvideo?.screen8" [src]="testvideo.screen8"></td>
+                            <td>{{testvideo.time8}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step10}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testvideo?.screen9" [src]="testvideo.screen9"></td>
+                            <td>{{testvideo.time9}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step11}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testvideo?.screen10" [src]="testvideo.screen10"></td>
+                            <td>{{testvideo.time10}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step12}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testvideo?.screen11" [src]="testvideo.screen11"></td>
+                            <td>{{testvideo.time11}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step13}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testvideo?.screen12" [src]="testvideo.screen12"></td>
+                            <td>{{testvideo.time12}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testvideo.step14}}</td>
+                        </tr>
+                        <tr>
+                            <td><img src="/assets/step.png"> {{testvideo.step15}} </td>
+                            <td>{{testvideo.durationsec}}<img src="/assets/timer.png"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
 
-                </tbody>
-            </table>
-        </mat-card>
-    </div>
-</mat-card>
-<table id="Testprops" style="display: none;">
-    <thead>
-        <tr>
-            <th>Session Proporties</th>
-            <th>Values</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Username</td>
-            <td>{{sessionvideo.username}}</td>
-        </tr>
-        <tr>
-            <td>Browser's name</td>
-            <td>{{sessionvideo.browsername}}</td>
-        </tr>
-        <tr>
-            <td>Operating system</td>
-            <td>{{sessionvideo.os}}</td>
-        </tr>
-        <tr>
-            <td>Browser Version </td>
-            <td>{{sessionvideo.browserversion}}</td>
-        </tr>
-        <tr>
-            <td>Test failed</td>
-            <td>{{sessionvideo.testfailed}} / {{sessionvideo.testcount}}</td>
-        </tr>
-        <tr>
-            <td>Test passed </td>
-            <td>{{sessionvideo.testpassed}} / {{sessionvideo.testcount}}</td>
-        </tr>
-        <tr>
-            <td>Started at </td>
-            <td>{{sessionvideo.startedAt}}</td>
-        </tr>
-        <tr>
-            <td>Session's title</td>
-            <td>{{sessionvideo.sessiontitle}}</td>
-        </tr>
-        <tr>
-            <td>Number of Tests</td>
-            <td>{{sessionvideo.testcount}}</td>
-        </tr>
-    </tbody>
+                    </tbody>
+                </table>
+            </mat-card>
+        </div>
+    </mat-card>
+    <table id="Testprops" style="display: none;">
+        <thead>
+            <tr>
+                <th>Session Proporties</th>
+                <th>Values</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Username</td>
+                <td>{{sessionvideo.username}}</td>
+            </tr>
+            <tr>
+                <td>Browser's name</td>
+                <td>{{sessionvideo.browsername}}</td>
+            </tr>
+            <tr>
+                <td>Operating system</td>
+                <td>{{sessionvideo.os}}</td>
+            </tr>
+            <tr>
+                <td>Browser Version </td>
+                <td>{{sessionvideo.browserversion}}</td>
+            </tr>
+            <tr>
+                <td>Test failed</td>
+                <td>{{sessionvideo.testfailed}} / {{sessionvideo.testcount}}</td>
+            </tr>
+            <tr>
+                <td>Test passed </td>
+                <td>{{sessionvideo.testpassed}} / {{sessionvideo.testcount}}</td>
+            </tr>
+            <tr>
+                <td>Started at </td>
+                <td>{{sessionvideo.startedAt}}</td>
+            </tr>
+            <tr>
+                <td>Session's title</td>
+                <td>{{sessionvideo.sessiontitle}}</td>
+            </tr>
+            <tr>
+                <td>Number of Tests</td>
+                <td>{{sessionvideo.testcount}}</td>
+            </tr>
+        </tbody>
 
-</table>
-<table id="pdfConvert" style="display: none;">
-    <thead>
-        <tr>
-            <th>Capabilities ID</th>
-            <th>Capabilities Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Cap 1</td>
-            <td>{{sessionvideo.cap1}}</td>
-        </tr>
-        <tr>
-            <td>Cap 2</td>
-            <td>{{sessionvideo.cap2}}</td>
-        </tr>
-        <tr>
-            <td>Cap 3</td>
-            <td>{{sessionvideo.cap3}}</td>
-        </tr>
-        <tr>
-            <td>Cap 4</td>
-            <td>{{sessionvideo.cap4}}</td>
-        </tr>
-        <tr>
-            <td>Cap 5</td>
-            <td>{{sessionvideo.cap5}}</td>
-        </tr>
-        <tr>
-            <td>Cap 6</td>
-            <td>{{sessionvideo.cap6}}</td>
-        </tr>
-        <tr>
-            <td>Cap 7</td>
-            <td>{{sessionvideo.cap7}}</td>
-        </tr>
-        <tr>
-            <td>Cap 8</td>
-            <td>{{sessionvideo.cap8}}</td>
-        </tr>
-    </tbody>
+    </table>
+    <table id="pdfConvert" style="display: none;">
+        <thead>
+            <tr>
+                <th>Capabilities ID</th>
+                <th>Capabilities Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cap 1</td>
+                <td>{{sessionvideo.cap1}}</td>
+            </tr>
+            <tr>
+                <td>Cap 2</td>
+                <td>{{sessionvideo.cap2}}</td>
+            </tr>
+            <tr>
+                <td>Cap 3</td>
+                <td>{{sessionvideo.cap3}}</td>
+            </tr>
+            <tr>
+                <td>Cap 4</td>
+                <td>{{sessionvideo.cap4}}</td>
+            </tr>
+            <tr>
+                <td>Cap 5</td>
+                <td>{{sessionvideo.cap5}}</td>
+            </tr>
+            <tr>
+                <td>Cap 6</td>
+                <td>{{sessionvideo.cap6}}</td>
+            </tr>
+            <tr>
+                <td>Cap 7</td>
+                <td>{{sessionvideo.cap7}}</td>
+            </tr>
+            <tr>
+                <td>Cap 8</td>
+                <td>{{sessionvideo.cap8}}</td>
+            </tr>
+        </tbody>
 
-</table>
+    </table>
 
-<table id="imgTable" style="display: none;">
-    <thead>
-        <tr>
-            <th>Step</th>
-            <th>Timer</th>
-            <th>Screenshot</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                {{testvideo.step1}}
-            </td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                {{testvideo.step2}}
-            </td>
-            <td></td>
-            <td></td>
-        </tr>
+    <table id="imgTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Step</th>
+                <th>Timer</th>
+                <th>Screenshot</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {{testvideo.step1}}
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    {{testvideo.step2}}
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
 
-        <tr>
-            <td style="text-align: center;">{{testvideo.step3}}</td>
-            <td style="text-align: center;">{{testvideo.time1}}</td>
-            <td><img class="size-image" *ngIf="testvideo?.screen11" [src]="testvideo.screen1"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testvideo.step4}}</td>
-            <td style="text-align: center;">{{testvideo.time2}}</td>
-            <td><img class="size-image" *ngIf="testvideo?.screen2" [src]="testvideo.screen2"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testvideo.step5}}</td>
-            <td style="text-align: center;">{{testvideo.time3}}</td>
-            <td><img class="size-image" *ngIf="testvideo?.screen3" [src]="testvideo.screen3"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testvideo.step6}}</td>
-            <td style="text-align: center;">{{testvideo.time4}}</td>
-            <td><img class="size-image" *ngIf="testvideo?.screen4" [src]="testvideo.screen4"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testvideo.step7}}</td>
-            <td style="text-align: center;">{{testvideo.time5}}</td>
-            <td><img class="size-image" *ngIf="testvideo?.screen5" [src]="testvideo.screen5"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testvideo.step8}}</td>
-            <td style="text-align: center;">{{testvideo.time6}}</td>
-            <td><img class="size-image" *ngIf="testvideo?.screen6" [src]="testvideo.screen6"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testvideo.step9}}</td>
-            <td style="text-align: center;">{{testvideo.time7}}</td>
-            <td><img class="size-image" *ngIf="testvideo?.screen7" [src]="testvideo.screen7"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testvideo.step10}}</td>
-            <td style="text-align: center;">{{testvideo.time8}}</td>
-            <td><img class="size-image" *ngIf="testvideo?.screen8" [src]="testvideo.screen8"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testvideo.step11}}</td>
-            <td style="text-align: center;">{{testvideo.time9}}</td>
-            <td><img class="size-image" *ngIf="testvideo?.screen9" [src]="testvideo.screen9"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testvideo.step12}}</td>
-            <td style="text-align: center;">{{testvideo.time10}}</td>
-            <td><img class="size-image" *ngIf="testvideo?.screen10" [src]="testvideo.screen10"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testvideo.step13}}</td>
-            <td style="text-align: center;">{{testvideo.time11}}</td>
-            <td><img class="size-image" *ngIf="testvideo?.screen11" [src]="testvideo.screen11"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testvideo.step14}}</td>
-            <td style="text-align: center;">{{testvideo.time12}}</td>
-            <td><img class="size-image" *ngIf="testvideo?.screen12" [src]="testvideo.screen12"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testvideo.step15}}</td>
-            <td style="text-align: center;"></td>
-            <td></td>
-        </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step3}}</td>
+                <td style="text-align: center;">{{testvideo.time1}}</td>
+                <td><img class="size-image" *ngIf="testvideo?.screen11" [src]="testvideo.screen1"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step4}}</td>
+                <td style="text-align: center;">{{testvideo.time2}}</td>
+                <td><img class="size-image" *ngIf="testvideo?.screen2" [src]="testvideo.screen2"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step5}}</td>
+                <td style="text-align: center;">{{testvideo.time3}}</td>
+                <td><img class="size-image" *ngIf="testvideo?.screen3" [src]="testvideo.screen3"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step6}}</td>
+                <td style="text-align: center;">{{testvideo.time4}}</td>
+                <td><img class="size-image" *ngIf="testvideo?.screen4" [src]="testvideo.screen4"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step7}}</td>
+                <td style="text-align: center;">{{testvideo.time5}}</td>
+                <td><img class="size-image" *ngIf="testvideo?.screen5" [src]="testvideo.screen5"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step8}}</td>
+                <td style="text-align: center;">{{testvideo.time6}}</td>
+                <td><img class="size-image" *ngIf="testvideo?.screen6" [src]="testvideo.screen6"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step9}}</td>
+                <td style="text-align: center;">{{testvideo.time7}}</td>
+                <td><img class="size-image" *ngIf="testvideo?.screen7" [src]="testvideo.screen7"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step10}}</td>
+                <td style="text-align: center;">{{testvideo.time8}}</td>
+                <td><img class="size-image" *ngIf="testvideo?.screen8" [src]="testvideo.screen8"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step11}}</td>
+                <td style="text-align: center;">{{testvideo.time9}}</td>
+                <td><img class="size-image" *ngIf="testvideo?.screen9" [src]="testvideo.screen9"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step12}}</td>
+                <td style="text-align: center;">{{testvideo.time10}}</td>
+                <td><img class="size-image" *ngIf="testvideo?.screen10" [src]="testvideo.screen10"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step13}}</td>
+                <td style="text-align: center;">{{testvideo.time11}}</td>
+                <td><img class="size-image" *ngIf="testvideo?.screen11" [src]="testvideo.screen11"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step14}}</td>
+                <td style="text-align: center;">{{testvideo.time12}}</td>
+                <td><img class="size-image" *ngIf="testvideo?.screen12" [src]="testvideo.screen12"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testvideo.step15}}</td>
+                <td style="text-align: center;"></td>
+                <td></td>
+            </tr>
 
-
-
-
-
-
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
+<ng-template #elseBlock>{{testsession.erreur}}</ng-template>

@@ -1,310 +1,319 @@
-<cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport"></cdk-virtual-scroll-viewport>
-<div class="same"><button id="idb" class="btn btn-success" (click)="generatePdf()">Export to PDF</button>
-    <div *ngIf="showbutton" class="same1">
-        <div class="loadingio-spinner-dual-ball-ch9ggzcuvhk">
-            <div class="ldio-fquply7zed">
-                <div></div>
-                <div></div>
-                <div></div>
+<div *ngIf="showsuccess; else elseBlock">
+    <cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport"></cdk-virtual-scroll-viewport>
+    <div class="same"><button id="idb" class="btn btn-success" (click)="generatePdf()">Export to PDF</button>
+        <div *ngIf="showbutton" class="same1">
+            <div class="loadingio-spinner-dual-ball-ch9ggzcuvhk">
+                <div class="ldio-fquply7zed">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
+
+            <p class="par">Please wait ...</p>
+
         </div>
-
-        <p class="par">Please wait ...</p>
-
     </div>
+
+    <mat-card class="colorcard">
+        <div class="wrapper">
+            <mat-card class="nestedgeneralinfo1 z-depth-3">
+                <div class="colorea">
+                    <div class="text">Session Title : {{session.sessiontitle}} </div>
+                    <div class="text">Browser's name : {{session.browsername}} <img class="img" src="/assets/chrome.png"> </div>
+                    <div class="text">Operating system : {{session.os}} <img class="img" src="/assets/windows.png"> </div>
+                </div>
+                <div class="colorea">
+                    <div class="text">Duration in seconds : {{testsession.durationsec}} <img class="img" src="/assets/timer.png"></div>
+                    <div class="text">Duration in minutes : {{testsession.durationmin }} <img class="img" src="/assets/timer.png"></div>
+                    <div class="text">Browser version: {{session.browserversion}} </div>
+                </div>
+                <div class="colorea">
+                    <div class="text">Started at : {{session.startedAt}} <img class="img" src="/assets/calendar.png"> </div>
+                    <div class="text">Test Rank : #{{testsession.testrank}} </div>
+                    <div class="text">Test Status : {{testsession.teststatus}} </div>
+                </div>
+
+            </mat-card>
+            <mat-card> <button type="button" class="collapsible" (click)="toggle()">Browser Capibilities</button>
+                <div *ngIf="contentup; else elseBlock1">
+                    <br>
+                    <p class="v">{{session.cap1}}</p>
+                    <p class="b">{{session.cap2}}</p>
+                    <p class="g">{{session.cap3}}</p>
+                    <p class="v">{{session.cap4}}</p>
+                    <p class="b">{{session.cap5}}</p>
+                    <p class="g">{{session.cap6}}</p>
+                    <p class="v">{{session.cap7}}</p>
+                    <p class="b">{{session.cap8}}</p>
+                </div>
+                <ng-template #elseBlock1> <br>
+
+                </ng-template>
+
+
+            </mat-card>
+
+            <mat-card class="nestedgeneralinfo">
+                <table class="table">
+
+                    <tbody>
+                        <tr>
+                            <td><img src="/assets/step.png"> {{testsession.step1}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><img src="/assets/step.png"> {{testsession.step2}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testsession?.screen1" [src]="testsession.screen1"></td>
+                            <td>{{testsession.time1}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step3}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testsession?.screen2" [src]="testsession.screen2"></td>
+                            <td>{{testsession.time2}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step4}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testsession?.screen3" [src]="testsession.screen3"></td>
+                            <td>{{testsession.time3}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step5}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testsession?.screen4" [src]="testsession.screen4"></td>
+                            <td>{{testsession.time4}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step6}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testsession?.screen5" [src]="testsession.screen5"></td>
+                            <td>{{testsession.time5}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step7}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testsession?.screen6" [src]="testsession.screen6"></td>
+                            <td>{{testsession.time6}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step8}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testsession?.screen7" [src]="testsession.screen7"></td>
+                            <td>{{testsession.time7}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step9}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testsession?.screen8" [src]="testsession.screen8"></td>
+                            <td>{{testsession.time8}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step10}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testsession?.screen9" [src]="testsession.screen9"></td>
+                            <td>{{testsession.time9}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step11}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testsession?.screen10" [src]="testsession.screen10"></td>
+                            <td>{{testsession.time10}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step12}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testsession?.screen11" [src]="testsession.screen11"></td>
+                            <td>{{testsession.time11}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step13}}</td>
+                        </tr>
+                        <tr>
+                            <td><img class="size-image" *ngIf="testsession?.screen12" [src]="testsession.screen12"></td>
+                            <td>{{testsession.time12}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step14}}</td>
+                        </tr>
+                        <tr>
+                            <td><img src="/assets/step.png"> {{testsession.step15}} </td>
+                            <td>{{testsession.durationsec}}<img src="/assets/timer.png"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </mat-card>
+        </div>
+    </mat-card>
+    <table id="Testprops" style="display: none;">
+        <thead>
+            <tr>
+                <th>Session Proporties</th>
+                <th>Values</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Username</td>
+                <td>{{session.username}}</td>
+            </tr>
+            <tr>
+                <td>Browser's name</td>
+                <td>{{session.browsername}}</td>
+            </tr>
+            <tr>
+                <td>Operating system</td>
+                <td>{{session.os}}</td>
+            </tr>
+            <tr>
+                <td>Browser Version </td>
+                <td>{{session.browserversion}}</td>
+            </tr>
+            <tr>
+                <td>Test failed</td>
+                <td>{{session.testfailed}} / {{session.testcount}}</td>
+            </tr>
+            <tr>
+                <td>Test passed </td>
+                <td>{{session.testpassed}} / {{session.testcount}}</td>
+            </tr>
+            <tr>
+                <td>Started at </td>
+                <td>{{session.startedAt}}</td>
+            </tr>
+            <tr>
+                <td>Session's title</td>
+                <td>{{session.sessiontitle}}</td>
+            </tr>
+            <tr>
+                <td>Number of Tests</td>
+                <td>{{session.testcount}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <table id="pdfConvert" style="display: none;">
+        <thead>
+            <tr>
+                <th>Capabilities ID</th>
+                <th>Capabilities Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cap 1</td>
+                <td>{{session.cap1}}</td>
+            </tr>
+            <tr>
+                <td>Cap 2</td>
+                <td>{{session.cap2}}</td>
+            </tr>
+            <tr>
+                <td>Cap 3</td>
+                <td>{{session.cap3}}</td>
+            </tr>
+            <tr>
+                <td>Cap 4</td>
+                <td>{{session.cap4}}</td>
+            </tr>
+            <tr>
+                <td>Cap 5</td>
+                <td>{{session.cap5}}</td>
+            </tr>
+            <tr>
+                <td>Cap 6</td>
+                <td>{{session.cap6}}</td>
+            </tr>
+            <tr>
+                <td>Cap 7</td>
+                <td>{{session.cap7}}</td>
+            </tr>
+            <tr>
+                <td>Cap 8</td>
+                <td>{{session.cap8}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <table id="imgTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Step</th>
+                <th>Timer</th>
+                <th>Screenshot</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {{testsession.step1}}
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    {{testsession.step2}}
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step3}}</td>
+                <td style="text-align: center;">{{testsession.time1}}</td>
+                <td><img class="size-image" *ngIf="testsession?.screen1" [src]="testsession.screen1"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step4}}</td>
+                <td style="text-align: center;">{{testsession.time2}}</td>
+                <td><img class="size-image" *ngIf="testsession?.screen2" [src]="testsession.screen2"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step5}}</td>
+                <td style="text-align: center;">{{testsession.time3}}</td>
+                <td><img class="size-image" *ngIf="testsession?.screen3" [src]="testsession.screen3"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step6}}</td>
+                <td style="text-align: center;">{{testsession.time4}}</td>
+                <td><img class="size-image" *ngIf="testsession?.screen4" [src]="testsession.screen4"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step7}}</td>
+                <td style="text-align: center;">{{testsession.time5}}</td>
+                <td><img class="size-image" *ngIf="testsession?.screen5" [src]="testsession.screen5"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step8}}</td>
+                <td style="text-align: center;">{{testsession.time6}}</td>
+                <td><img class="size-image" *ngIf="testsession?.screen6" [src]="testsession.screen6"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step9}}</td>
+                <td style="text-align: center;">{{testsession.time7}}</td>
+                <td><img class="size-image" *ngIf="testsession?.screen7" [src]="testsession.screen7"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step10}}</td>
+                <td style="text-align: center;">{{testsession.time8}}</td>
+                <td><img class="size-image" *ngIf="testsession?.screen8" [src]="testsession.screen8"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step11}}</td>
+                <td style="text-align: center;">{{testsession.time9}}</td>
+                <td><img class="size-image" *ngIf="testsession?.screen9" [src]="testsession.screen9"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step12}}</td>
+                <td style="text-align: center;">{{testsession.time10}}</td>
+                <td><img class="size-image" *ngIf="testsession?.screen10" [src]="testsession.screen10"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step13}}</td>
+                <td style="text-align: center;">{{testsession.time11}}</td>
+                <td><img class="size-image" *ngIf="testsession?.screen11" [src]="testsession.screen11"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step14}}</td>
+                <td style="text-align: center;">{{testsession.time12}}</td>
+                <td><img class="size-image" *ngIf="testsession?.screen12" [src]="testsession.screen12"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">{{testsession.step15}}</td>
+                <td style="text-align: center;"></td>
+                <td></td>
+            </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+
 </div>
-
-<mat-card class="colorcard">
-    <div class="wrapper">
-        <mat-card class="nestedgeneralinfo1 z-depth-3">
-            <div class="colorea">
-                <div class="text">Session Title : {{session.sessiontitle}} </div>
-                <div class="text">Browser's name : {{session.browsername}} <img class="img" src="/assets/chrome.png"> </div>
-                <div class="text">Operating system : {{session.os}} <img class="img" src="/assets/windows.png"> </div>
-            </div>
-            <div class="colorea">
-                <div class="text">Duration in seconds : {{testsession.durationsec}} <img class="img" src="/assets/timer.png"></div>
-                <div class="text">Duration in minutes : {{testsession.durationmin }} <img class="img" src="/assets/timer.png"></div>
-                <div class="text">Browser version: {{session.browserversion}} </div>
-            </div>
-            <div class="colorea">
-                <div class="text">Started at : {{session.startedAt}} <img class="img" src="/assets/calendar.png"> </div>
-                <div class="text">Test Rank : #{{testsession.testrank}} </div>
-                <div class="text">Test Status : {{testsession.teststatus}} </div>
-            </div>
-
-        </mat-card>
-        <mat-card> <button type="button" class="collapsible">Browser Capibilities</button>
-            <div class="content">
-                <br>
-                <p class="v">{{session.cap1}}</p>
-                <p class="b">{{session.cap2}}</p>
-                <p class="g">{{session.cap3}}</p>
-                <p class="v">{{session.cap4}}</p>
-                <p class="b">{{session.cap5}}</p>
-                <p class="g">{{session.cap6}}</p>
-                <p class="v">{{session.cap7}}</p>
-                <p class="b">{{session.cap8}}</p>
-            </div>
-        </mat-card>
-
-        <mat-card class="nestedgeneralinfo">
-            <table class="table">
-
-                <tbody>
-                    <tr>
-                        <td><img src="/assets/step.png"> {{testsession.step1}}</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><img src="/assets/step.png"> {{testsession.step2}}</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testsession?.screen1" [src]="testsession.screen1"></td>
-                        <td>{{testsession.time1}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step3}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testsession?.screen2" [src]="testsession.screen2"></td>
-                        <td>{{testsession.time2}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step4}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testsession?.screen3" [src]="testsession.screen3"></td>
-                        <td>{{testsession.time3}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step5}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testsession?.screen4" [src]="testsession.screen4"></td>
-                        <td>{{testsession.time4}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step6}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testsession?.screen5" [src]="testsession.screen5"></td>
-                        <td>{{testsession.time5}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step7}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testsession?.screen6" [src]="testsession.screen6"></td>
-                        <td>{{testsession.time6}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step8}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testsession?.screen7" [src]="testsession.screen7"></td>
-                        <td>{{testsession.time7}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step9}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testsession?.screen8" [src]="testsession.screen8"></td>
-                        <td>{{testsession.time8}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step10}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testsession?.screen9" [src]="testsession.screen9"></td>
-                        <td>{{testsession.time9}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step11}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testsession?.screen10" [src]="testsession.screen10"></td>
-                        <td>{{testsession.time10}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step12}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testsession?.screen11" [src]="testsession.screen11"></td>
-                        <td>{{testsession.time11}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step13}}</td>
-                    </tr>
-                    <tr>
-                        <td><img class="size-image" *ngIf="testsession?.screen12" [src]="testsession.screen12"></td>
-                        <td>{{testsession.time12}}<img src="/assets/timer.png"> <br> <img src="/assets/step.png"> {{testsession.step14}}</td>
-                    </tr>
-                    <tr>
-                        <td><img src="/assets/step.png"> {{testsession.step15}} </td>
-                        <td>{{testsession.durationsec}}<img src="/assets/timer.png"></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </mat-card>
-    </div>
-</mat-card>
-<table id="Testprops" style="display: none;">
-    <thead>
-        <tr>
-            <th>Session Proporties</th>
-            <th>Values</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Username</td>
-            <td>{{session.username}}</td>
-        </tr>
-        <tr>
-            <td>Browser's name</td>
-            <td>{{session.browsername}}</td>
-        </tr>
-        <tr>
-            <td>Operating system</td>
-            <td>{{session.os}}</td>
-        </tr>
-        <tr>
-            <td>Browser Version </td>
-            <td>{{session.browserversion}}</td>
-        </tr>
-        <tr>
-            <td>Test failed</td>
-            <td>{{session.testfailed}} / {{session.testcount}}</td>
-        </tr>
-        <tr>
-            <td>Test passed </td>
-            <td>{{session.testpassed}} / {{session.testcount}}</td>
-        </tr>
-        <tr>
-            <td>Started at </td>
-            <td>{{session.startedAt}}</td>
-        </tr>
-        <tr>
-            <td>Session's title</td>
-            <td>{{session.sessiontitle}}</td>
-        </tr>
-        <tr>
-            <td>Number of Tests</td>
-            <td>{{session.testcount}}</td>
-        </tr>
-    </tbody>
-
-</table>
-<table id="pdfConvert" style="display: none;">
-    <thead>
-        <tr>
-            <th>Capabilities ID</th>
-            <th>Capabilities Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Cap 1</td>
-            <td>{{session.cap1}}</td>
-        </tr>
-        <tr>
-            <td>Cap 2</td>
-            <td>{{session.cap2}}</td>
-        </tr>
-        <tr>
-            <td>Cap 3</td>
-            <td>{{session.cap3}}</td>
-        </tr>
-        <tr>
-            <td>Cap 4</td>
-            <td>{{session.cap4}}</td>
-        </tr>
-        <tr>
-            <td>Cap 5</td>
-            <td>{{session.cap5}}</td>
-        </tr>
-        <tr>
-            <td>Cap 6</td>
-            <td>{{session.cap6}}</td>
-        </tr>
-        <tr>
-            <td>Cap 7</td>
-            <td>{{session.cap7}}</td>
-        </tr>
-        <tr>
-            <td>Cap 8</td>
-            <td>{{session.cap8}}</td>
-        </tr>
-    </tbody>
-
-</table>
-
-<table id="imgTable" style="display: none;">
-    <thead>
-        <tr>
-            <th>Step</th>
-            <th>Timer</th>
-            <th>Screenshot</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                {{testsession.step1}}
-            </td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>
-                {{testsession.step2}}
-            </td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step3}}</td>
-            <td style="text-align: center;">{{testsession.time1}}</td>
-            <td><img class="size-image" *ngIf="testsession?.screen1" [src]="testsession.screen1"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step4}}</td>
-            <td style="text-align: center;">{{testsession.time2}}</td>
-            <td><img class="size-image" *ngIf="testsession?.screen2" [src]="testsession.screen2"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step5}}</td>
-            <td style="text-align: center;">{{testsession.time3}}</td>
-            <td><img class="size-image" *ngIf="testsession?.screen3" [src]="testsession.screen3"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step6}}</td>
-            <td style="text-align: center;">{{testsession.time4}}</td>
-            <td><img class="size-image" *ngIf="testsession?.screen4" [src]="testsession.screen4"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step7}}</td>
-            <td style="text-align: center;">{{testsession.time5}}</td>
-            <td><img class="size-image" *ngIf="testsession?.screen5" [src]="testsession.screen5"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step8}}</td>
-            <td style="text-align: center;">{{testsession.time6}}</td>
-            <td><img class="size-image" *ngIf="testsession?.screen6" [src]="testsession.screen6"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step9}}</td>
-            <td style="text-align: center;">{{testsession.time7}}</td>
-            <td><img class="size-image" *ngIf="testsession?.screen7" [src]="testsession.screen7"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step10}}</td>
-            <td style="text-align: center;">{{testsession.time8}}</td>
-            <td><img class="size-image" *ngIf="testsession?.screen8" [src]="testsession.screen8"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step11}}</td>
-            <td style="text-align: center;">{{testsession.time9}}</td>
-            <td><img class="size-image" *ngIf="testsession?.screen9" [src]="testsession.screen9"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step12}}</td>
-            <td style="text-align: center;">{{testsession.time10}}</td>
-            <td><img class="size-image" *ngIf="testsession?.screen10" [src]="testsession.screen10"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step13}}</td>
-            <td style="text-align: center;">{{testsession.time11}}</td>
-            <td><img class="size-image" *ngIf="testsession?.screen11" [src]="testsession.screen11"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step14}}</td>
-            <td style="text-align: center;">{{testsession.time12}}</td>
-            <td><img class="size-image" *ngIf="testsession?.screen12" [src]="testsession.screen12"></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">{{testsession.step15}}</td>
-            <td style="text-align: center;"></td>
-            <td></td>
-        </tr>
-
-
-
-
-
-
-    </tbody>
-</table>
+<ng-template #elseBlock>{{testsession.erreur}}</ng-template>

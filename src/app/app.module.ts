@@ -21,7 +21,7 @@ import { VideoplayerComponent } from './videoplayer/videoplayer.component';
 import { BrowsercapibilitiesComponent } from './browsercapibilities/browsercapibilities.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { SplashscreenComponent } from './splashscreen/splashscreen.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -60,6 +60,7 @@ import { SplashscreenComponent } from './splashscreen/splashscreen.component';
     
   ],
   imports: [
+    FormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

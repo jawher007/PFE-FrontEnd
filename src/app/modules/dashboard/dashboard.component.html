@@ -24,7 +24,8 @@
         <mat-card class="item">
             <div class="testdiv" *ngFor="let testsession of testvideo">
                 <p class="text">| Test Case #{{testsession.testrank}} | {{testsession.testname}} | Test Status :
-                    <span class="passed">{{testsession.teststatus}}</span> | Created at {{testsession.startedAt}} <button class="buttonimg" (click)="viewtest(testsession.sessionid,testsession.testrank)"></button></p>
+                    <span *ngIf="testsession.teststatus=='passed'" class="passed">{{testsession.teststatus}}</span> <span *ngIf="testsession.teststatus=='failed'" class="failed">{{testsession.teststatus}}</span> | Created at {{testsession.startedAt}}
+                    <button class="buttonimg" (click)="viewtest(testsession.sessionid,testsession.testrank)"></button></p>
                 <br></div>
 
         </mat-card>
