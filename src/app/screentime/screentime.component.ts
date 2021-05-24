@@ -1,3 +1,4 @@
+import { SessionService } from './../session.service';
 import { StatisticsComponent } from './../statistics/statistics.component';
 import { ViewtestComponent } from './../viewtest/viewtest.component';
 import { Test } from './../Test';
@@ -28,28 +29,36 @@ export class ScreentimeComponent implements OnInit {
   expanded = false;
   storedNames:Testsession[];
   showbutton:boolean;
+  idsession: number;
+  sessionids: string;
+  session: Session;
 
-
-
-  constructor(private testsessionservice: TestsessionService, public dialog: MatDialog) { }
-
+  constructor(private testsessionservice: TestsessionService,private sessionService: SessionService, public dialog: MatDialog) { }
 
   ngOnInit() {
-
-
+    this.sessionids = sessionStorage.getItem('sessionid');
+    this.idsession = +this.sessionids;
+    this.getBySession();
 
     this.sessionid = sessionStorage.getItem('sessionidsessionid');
     this.id = +this.sessionid;
     this.testsessionservice.getTestbyID(this.id)
-      .subscribe(data => {
-        
+      .subscribe(data => {      
         this.testsessions = data;
+      }, error => console.log(error));
+  }
 
+  getBySession() {
+    this.sessionService.getSession(this.idsession)
+      .subscribe(data => {
 
-     
+        this.session = data;
+        console.log('********************');
+  console.log( this.session);
+  console.log('*********************');
       }, error => console.log(error));
 
-      
+
 
   }
 
@@ -144,24 +153,34 @@ generatePdf(): void {
 
 pdf() {
   const doc = new jsPDF('l');
-  // Heading
-  console.log("5 %");
+    // Heading
+    console.log("5 %");
+    this.ngOnInit();
+    this.showbutton = true;
+    console.log(this.showbutton);
+    (doc as any).autoTable({
 
+      columnStyles: {
+        0: { cellWidth: 40, fillColor: '#fff', fontStyle: 'bold', fontSize: '11', textColor: '#000' },
+        1: { cellWidth: 20, fillColor: '#fff', fontStyle: 'normal', fontSize: '11', textColor: '#fc0' },
+        2: { fillColor: '#fff', fontStyle: 'normal', fontSize: '11', textColor: '#000' },
 
-  (doc as any).autoTable({
-
-    columnStyles: {
-      0: { cellWidth: 40, fillColor: '#fff', fontStyle: 'bold', fontSize: '11', textColor: '#000' },
-      1: { cellWidth: 20, fillColor: '#fff', fontStyle: 'normal', fontSize: '11', textColor: '#fc0' },
-      2: { fillColor: '#fff', fontStyle: 'normal', fontSize: '11', textColor: '#000' },
-
-    }, // Cells in first column centered and green
-    body: [
-      ['Test Case with Screenshots', 'Date', new Date()]
-    ],
-  });
+      }, // Cells in first column centered and green
+      body: [
+        ['Test Case with Screenshots', 'Date', new Date()]
+      ],
+    });
+    // Table 1
+    (doc as any).autoTable({
+      html: '#Testprops'
+    });
+    // Table 2
+    (doc as any).autoTable({
+      html: '#pdfConvert'
+    });
+         // Table 3
   for (let i=0;i<this.storedNames.length;i++){
-     // Table 3
+
   (doc as any).autoTable({
     html: '#imgTable'+i,
     bodyStyles: { minCellHeight: 20 },

@@ -67,6 +67,11 @@ this.Socket();
     }, 300);
   }
 
+  gotojira(){
+    // the url,html tag should be called from here , how ?
+    window.open('https://id.atlassian.com/login');
+    }
+
   themeChangeHandler(themeToSet) {
     this.themeService.setTheme(themeToSet);
   }

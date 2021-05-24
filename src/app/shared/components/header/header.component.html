@@ -11,7 +11,7 @@
 
                 <li>
                     <mat-card class="md-card-thread">
-                        <div>
+                        <div class="matchparent">
                             <span>  <img [class.image] = "load"  src="assets/data_saver_off-24px.svg"></span>
                             <mat-label class="color-label-nav-bar"> |Parallel threads| </mat-label>
                             <mat-label class="color-label-nav-bar"> :</mat-label>
@@ -28,6 +28,22 @@
                         </button>
                     </mat-card>
                 </li>
+                <li>
+                    <mat-card class="md-card-buttons" (click)="gotojira()">
+                        <button mat-icon-button title="go to jira">
+                           <img src="/assets/jira.png">
+                        </button>
+                    </mat-card>
+                </li>
+
+                <li>
+                    <mat-card class="md-card-buttons" (click)="openDialogPortal()">
+                        <button mat-icon-button title="change language">
+                           <img src="/assets/lang.png">
+                        </button>
+                    </mat-card>
+                </li>
+
                 <li>
                     <mat-card class="md-card-buttons" title="change theme">
                         <app-menu [options]="options$ | async" (themeChange)="themeChangeHandler($event)">

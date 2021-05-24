@@ -27,7 +27,7 @@
         <ul *ngFor="let testsession of testsessions">
 
             <li>
-                <div class="black" *ngFor="let testsession of testsessions"> <input type="checkbox" [(ngModel)]="testsession.checked" (change)="foo()" style="color:black">{{testsession.testrank}}</div>
+                <div class="black" *ngFor="let testsession of testsessions"> <input type="checkbox" [(ngModel)]="testsession.checked" (change)="foo()" style="color:black"> {{testsession.testrank}}</div>
             </li>
         </ul>
     </details>
@@ -50,7 +50,102 @@
 
 
 </mat-card>
+
+<table id="Testprops" style="display: none;">
+    <thead>
+        <tr>
+            <th>Session Proporties</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Username</td>
+            <td>{{session.username}}</td>
+        </tr>
+        <tr>
+            <td>Browser's name</td>
+            <td>{{session.browsername}}</td>
+        </tr>
+        <tr>
+            <td>Operating system</td>
+            <td>{{session.os}}</td>
+        </tr>
+        <tr>
+            <td>Browser Version </td>
+            <td>{{session.browserversion}}</td>
+        </tr>
+        <tr>
+            <td>Test failed</td>
+            <td>{{session.testfailed}} / {{session.testcount}}</td>
+        </tr>
+        <tr>
+            <td>Test passed </td>
+            <td>{{session.testpassed}} / {{session.testcount}}</td>
+        </tr>
+        <tr>
+            <td>Started at </td>
+            <td>{{session.startedAt}}</td>
+        </tr>
+        <tr>
+            <td>Session's title</td>
+            <td>{{session.sessiontitle}}</td>
+        </tr>
+        <tr>
+            <td>Number of Tests</td>
+            <td>{{session.testcount}}</td>
+        </tr>
+    </tbody>
+
+</table>
+<table id="pdfConvert" style="display: none;">
+    <thead>
+        <tr>
+            <th>Capabilities ID</th>
+            <th>Capabilities Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Cap 1</td>
+            <td>{{session.cap1}}</td>
+        </tr>
+        <tr>
+            <td>Cap 2</td>
+            <td>{{session.cap2}}</td>
+        </tr>
+        <tr>
+            <td>Cap 3</td>
+            <td>{{session.cap3}}</td>
+        </tr>
+        <tr>
+            <td>Cap 4</td>
+            <td>{{session.cap4}}</td>
+        </tr>
+        <tr>
+            <td>Cap 5</td>
+            <td>{{session.cap5}}</td>
+        </tr>
+        <tr>
+            <td>Cap 6</td>
+            <td>{{session.cap6}}</td>
+        </tr>
+        <tr>
+            <td>Cap 7</td>
+            <td>{{session.cap7}}</td>
+        </tr>
+        <tr>
+            <td>Cap 8</td>
+            <td>{{session.cap8}}</td>
+        </tr>
+    </tbody>
+
+</table>
+
 <div *ngFor="let testsession of storedNames ; let i=index">
+
+
+
     <table id="imgTable{{i}}" style="display: none;">
         <thead>
             <tr>
