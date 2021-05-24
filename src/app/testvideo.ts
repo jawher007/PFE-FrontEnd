@@ -75,4 +75,5 @@ export class TestVideo{
     durationsec: string;
     durationmin: string;
     videolink:string;
+  checked: any;
 }
