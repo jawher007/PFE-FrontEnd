@@ -1,3 +1,4 @@
+import { PieComponent } from './../../widgets/pie/pie.component';
 import { IssuesComponent } from './../../../issues/issues.component';
 import { ShowfeedbackComponent } from './../../../showfeedback/showfeedback.component';
 import { StatisticsComponent } from './../../../statistics/statistics.component';
@@ -15,8 +16,10 @@ import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import  io from 'socket.io-client' ;
 import Swal from 'sweetalert2';
-
-
+import { TestsessionService } from './../../../testsession.service';
+import { TestvideoService } from './../../../testvideo.service';
+import { Testsession } from './../../../testsession';
+import { TestVideo } from './../../../testvideo';
 
 
 @Component({
@@ -25,6 +28,21 @@ import Swal from 'sweetalert2';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  testvideo: TestVideo;
+  testvideos: TestVideo[] = [];
+
+  testsession: Testsession;
+  testsessions: Testsession[] = [];
+
+  passedscreen: number;
+  failedscreen: number;
+
+  passedvideo: number;
+  failedvideo: number;
+
+
+
   load=false;
   disable:string;
   ifscreen:string;
@@ -37,9 +55,57 @@ export class HeaderComponent implements OnInit {
   socket=io('http://localhost:8000/');
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
-  constructor(private readonly themeService: ThemeService,private router: Router,public dialog: MatDialog) {}
+  constructor(private readonly themeService: ThemeService,private testsessionService: TestsessionService,private router: Router,public dialog: MatDialog,private testvideoService: TestvideoService) {}
 
   ngOnInit() { 
+
+    this.testvideoService.getTestbyStatus("passed").subscribe(data => {
+
+      this.testvideos = data as TestVideo[];
+      console.log(this.testvideos);
+      this.passedvideo = this.testvideos.length;
+      console.log( this.passedvideo);
+
+      sessionStorage.setItem('passedvideo',this.passedvideo+'') ;
+
+    });
+
+
+
+
+    this.testvideoService.getTestbyStatus("failed").subscribe(data => {
+
+      this.testvideos = data as TestVideo[];
+      
+
+ 
+
+        this.failedvideo = this.testvideos.length;
+        sessionStorage.setItem('failedvideo',this.failedvideo+'') ;
+      
+    });
+
+
+    this.testsessionService.getTestbyStatus("passed").subscribe(data => {
+
+      this.testsessions = data as Testsession[];
+
+      console.log( this.testsessions);
+      this.passedscreen = this.testsessions.length;
+      sessionStorage.setItem('passedscreen',this.passedscreen+'') ;
+    });
+
+    this.testsessionService.getTestbyStatus("failed").subscribe(data => {
+
+      this.testsessions = data as Testsession[];
+
+      console.log( this.testsessions);
+
+      this.failedscreen = this.testsessions.length
+      sessionStorage.setItem('failedscreen',this.failedscreen+'') ;
+    });
+   
+
 this.Socket();
     
     this.disable=sessionStorage.getItem('showbutton');
@@ -161,7 +227,28 @@ this.Socket();
     });
   }
 
+  openDialogCharts(){
+    const dialogRef = this.dialog.open(PieComponent, {
+      width: '90%',
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+     
+    });
+  }
+
   gotodashboard(){
+
+
+
+
+
+
+
+
+
     sessionStorage.removeItem('idtest');
     sessionStorage.removeItem('sessionidsessionid');
     sessionStorage.removeItem('sessionid');

@@ -1,6 +1,9 @@
+
 import { Component,OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import  io from 'socket.io-client' ;
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,10 +12,17 @@ import  io from 'socket.io-client' ;
 export class AppComponent implements OnInit {
   title = 'dashboard';
 
+  
+
+
   socket=io('http://localhost:8000/');
 
-
+  constructor() { }
   ngOnInit() {
+
+    
+
+   
     this.socket.on('connect',function(){ /// if socket connected == true then HitApi 
       console.log('socket connected');
       
@@ -36,4 +46,8 @@ export class AppComponent implements OnInit {
     });
 
   }
+
+
+  
+
 }

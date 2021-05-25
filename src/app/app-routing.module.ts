@@ -1,3 +1,4 @@
+import { PieComponent } from './shared/widgets/pie/pie.component';
 import { UpdateissueComponent } from './updateissue/updateissue.component';
 import { UpdatefeedbackComponent } from './updatefeedback/updatefeedback.component';
 import { ViewtestvideoComponent } from './viewtestvideo/viewtestvideo.component';
@@ -22,6 +23,7 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PostsComponent } from './modules/posts/posts.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth/auth.guard';
+
 
 
 
@@ -62,6 +64,7 @@ const routes: Routes = [
     component: StatisticsComponent,canActivate:[AuthGuard]
   }]
 }, 
+{ path:'charts',component:PieComponent,canActivate:[AuthGuard]},
 { path:'portal',component:PortalComponent,canActivate:[AuthGuard]},
 { path:'showissues',component:IssuesComponent,canActivate:[AuthGuard]},
 { path:'showfeedback',component:ShowfeedbackComponent,canActivate:[AuthGuard]},

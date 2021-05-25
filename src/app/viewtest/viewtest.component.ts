@@ -122,10 +122,6 @@ export class ViewtestComponent implements OnInit {
   pdf() {
     const doc = new jsPDF('l');
     // Heading
-    console.log("5 %");
-    this.ngOnInit();
-    this.showbutton = true;
-    console.log(this.showbutton);
     (doc as any).autoTable({
 
       columnStyles: {
@@ -140,11 +136,11 @@ export class ViewtestComponent implements OnInit {
     });
     // Table 1
     (doc as any).autoTable({
-      html: '#Testprops'
+      html: '#Testpropser'
     });
     // Table 2
     (doc as any).autoTable({
-      html: '#pdfConvert'
+      html: '#pdfConverter'
     });
     // Table 3
     (doc as any).autoTable({
@@ -179,6 +175,71 @@ export class ViewtestComponent implements OnInit {
     doc.save('TestCase.pdf');
   }
 
+
+
+  generatePdferror(): void {
+
+    new Promise<void>((resolve) => {
+      setTimeout(() => {
+        this.showbutton = true;
+        resolve();
+      }
+        , 500);
+
+    })
+      .then(_ => new Promise<void>(resolve => {
+        setTimeout(() => {
+          this.pdferror();
+          resolve();
+        }
+          , 250);
+      })
+      )
+      .then(_ => new Promise<void>(resolve => {
+        this.showbutton = false;
+      })
+      );
+
+
+
+
+
+
+
+  }
+
+
+  pdferror() {
+    const doc = new jsPDF('l');
+    // Heading
+    console.log("5 %");
+    
+    (doc as any).autoTable({
+
+      columnStyles: {
+        0: { cellWidth: 40, fillColor: '#fff', fontStyle: 'bold', fontSize: '11', textColor: '#000' },
+        1: { cellWidth: 20, fillColor: '#fff', fontStyle: 'normal', fontSize: '11', textColor: '#fc0' },
+        2: { fillColor: '#fff', fontStyle: 'normal', fontSize: '11', textColor: '#000' },
+
+      }, // Cells in first column centered and green
+      body: [
+        ['Test Case with Screenshots', 'Date', new Date()]
+      ],
+    });
+    // Table 1
+    (doc as any).autoTable({
+      html: '#Testpropserror'
+    });
+    // Table 2
+    (doc as any).autoTable({
+      html: '#pdfConverterror'
+    });
+    
+    console.log("90 %");
+
+
+    doc.save('TestCase.pdf');
+  }
 
 
 }

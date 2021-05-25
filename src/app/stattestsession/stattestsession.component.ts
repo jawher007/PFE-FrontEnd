@@ -125,7 +125,7 @@ getAllTestPassed(){
   this.testsessionService.getTestbyStatus("passed").subscribe(data => {
    
     this.testsessions = data as Testsession[];
-    
+   
     
 this.passed=this.testsessions.length;
     
@@ -138,7 +138,7 @@ getAllTestFailed(){
   this.testsessionService.getTestbyStatus("failed").subscribe(data => {
    
     this.testsessions = data as Testsession[];
-   
+
       
 this.failed=this.testsessions.length
   

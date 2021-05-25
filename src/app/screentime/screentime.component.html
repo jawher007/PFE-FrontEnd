@@ -75,6 +75,7 @@
             <td>Browser Version </td>
             <td>{{session.browserversion}}</td>
         </tr>
+
         <tr>
             <td>Test failed</td>
             <td>{{session.testfailed}} / {{session.testcount}}</td>
@@ -155,6 +156,13 @@
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <td>
+                    Test Status : {{testsession.teststatus}}
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
             <tr>
                 <td>
                     {{testsession.step1}}

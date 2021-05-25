@@ -126,7 +126,7 @@
             </mat-card>
         </div>
     </mat-card>
-    <table id="Testprops" style="display: none;">
+    <table id="Testpropser" style="display: none;">
         <thead>
             <tr>
                 <th>Session Proporties</th>
@@ -151,6 +151,10 @@
                 <td>{{session.browserversion}}</td>
             </tr>
             <tr>
+                <td>Test rank</td>
+                <td>{{testsession.testrank}}</td>
+            </tr>
+            <tr>
                 <td>Test failed</td>
                 <td>{{session.testfailed}} / {{session.testcount}}</td>
             </tr>
@@ -170,10 +174,15 @@
                 <td>Number of Tests</td>
                 <td>{{session.testcount}}</td>
             </tr>
+
+            <tr>
+                <td>Test Status</td>
+                <td>{{testsession.teststatus}}</td>
+            </tr>
         </tbody>
 
     </table>
-    <table id="pdfConvert" style="display: none;">
+    <table id="pdfConverter" style="display: none;">
         <thead>
             <tr>
                 <th>Capabilities ID</th>
@@ -226,6 +235,13 @@
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <td>
+                    Test Status : {{testsession.teststatus}}
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
             <tr>
                 <td>
                     {{testsession.step1}}
@@ -315,4 +331,125 @@
     </table>
 
 </div>
-<ng-template #elseBlock>{{testsession.erreur}}</ng-template>
+<ng-template #elseBlock>
+    <div class="same"><button id="idb" class="btn btn-success" (click)="generatePdferror()">Export to PDF</button>
+        <div *ngIf="showbutton" class="same1">
+            <div class="loadingio-spinner-dual-ball-ch9ggzcuvhk">
+                <div class="ldio-fquply7zed">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <p class="par">Please wait ...</p>
+
+        </div>
+    </div> <br> Error log : {{testsession.erreur}}
+
+    <table id="Testpropserror" style="display: none;">
+        <thead>
+            <tr>
+                <th>Session Proporties</th>
+                <th>Values</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Username</td>
+                <td>{{session.username}}</td>
+            </tr>
+            <tr>
+                <td>Browser's name</td>
+                <td>{{session.browsername}}</td>
+            </tr>
+            <tr>
+                <td>Operating system</td>
+                <td>{{session.os}}</td>
+            </tr>
+            <tr>
+                <td>Browser Version </td>
+                <td>{{session.browserversion}}</td>
+            </tr>
+            <tr>
+                <td>Test rank</td>
+                <td>{{testsession.testrank}}</td>
+            </tr>
+            <tr>
+                <td>Test failed</td>
+                <td>{{session.testfailed}} / {{session.testcount}}</td>
+            </tr>
+            <tr>
+                <td>Test passed </td>
+                <td>{{session.testpassed}} / {{session.testcount}}</td>
+            </tr>
+            <tr>
+                <td>Started at </td>
+                <td>{{session.startedAt}}</td>
+            </tr>
+            <tr>
+                <td>Session's title</td>
+                <td>{{session.sessiontitle}}</td>
+            </tr>
+            <tr>
+                <td>Number of Tests</td>
+                <td>{{session.testcount}}</td>
+            </tr>
+            <tr>
+                <td>error log</td>
+                <td>{{testsession.erreur}}</td>
+            </tr>
+            <tr>
+                <td>Test Status</td>
+                <td>{{testsession.teststatus}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <table id="pdfConverterror" style="display: none;">
+        <thead>
+            <tr>
+                <th>Capabilities ID</th>
+                <th>Capabilities Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cap 1</td>
+                <td>{{session.cap1}}</td>
+            </tr>
+            <tr>
+                <td>Cap 2</td>
+                <td>{{session.cap2}}</td>
+            </tr>
+            <tr>
+                <td>Cap 3</td>
+                <td>{{session.cap3}}</td>
+            </tr>
+            <tr>
+                <td>Cap 4</td>
+                <td>{{session.cap4}}</td>
+            </tr>
+            <tr>
+                <td>Cap 5</td>
+                <td>{{session.cap5}}</td>
+            </tr>
+            <tr>
+                <td>Cap 6</td>
+                <td>{{session.cap6}}</td>
+            </tr>
+            <tr>
+                <td>Cap 7</td>
+                <td>{{session.cap7}}</td>
+            </tr>
+            <tr>
+                <td>Cap 8</td>
+                <td>{{session.cap8}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+
+</ng-template>

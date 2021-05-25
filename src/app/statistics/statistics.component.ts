@@ -142,13 +142,13 @@ export class StatisticsComponent implements OnInit {
       this.testvideoService.getTestbyStatus("failed").subscribe(data => {
        
         this.testsessions = data as TestVideo[];
-        for (let iter of this.testsessions) {
+
     
           
-     console.log(this.failed);
+  
      this.failed=this.testsessions.length;
   
-        }
+        
       });
       }
     
