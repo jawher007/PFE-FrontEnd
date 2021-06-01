@@ -312,7 +312,18 @@
         </tbody>
     </table>
 </div>
-<ng-template #elseBlock>{{testvideo.erreur}}
+<ng-template #elseBlock> <br>
+    <div class="card border-danger">
+        <div class="card-header">
+            Error details
+
+        </div>
+        <div class="card-body">
+
+            {{testvideo.erreur}}
+
+        </div>
+    </div>
 
     <table id="Testpropserror" style="display: none;">
         <thead>

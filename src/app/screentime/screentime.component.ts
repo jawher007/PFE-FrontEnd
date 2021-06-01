@@ -178,6 +178,14 @@ pdf() {
     (doc as any).autoTable({
       html: '#pdfConvert'
     });
+
+    //table 4  
+    for (let i=0;i<this.storedNames.length;i++){
+      (doc as any).autoTable({
+        html: '#pdfConverts'+i
+      });
+    }
+
          // Table 3
   for (let i=0;i<this.storedNames.length;i++){
 

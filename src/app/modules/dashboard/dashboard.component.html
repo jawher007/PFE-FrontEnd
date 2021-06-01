@@ -162,7 +162,26 @@
 
 <div *ngFor="let testsession of storedNames ; let i=index">
 
+    <table id="pdfConverts{{i}}" style="display: none;">
+        <thead>
+            <tr>
+                <th>Test rank</th>
+                <th>Error details</th>
 
+                <th>test status </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{testsession.testrank}}</td>
+                <td>{{testsession.erreur}}</td>
+                <td>{{testsession.teststatus}}</td>
+            </tr>
+
+        </tbody>
+
+    </table>
 
     <table id="imgTable{{i}}" style="display: none;">
         <thead>

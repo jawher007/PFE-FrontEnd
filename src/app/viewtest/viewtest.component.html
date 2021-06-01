@@ -344,7 +344,19 @@
             <p class="par">Please wait ...</p>
 
         </div>
-    </div> <br> Error log : {{testsession.erreur}}
+    </div>
+    <br>
+    <div class="card border-danger">
+        <div class="card-header">
+            Error details
+
+        </div>
+        <div class="card-body">
+
+            {{testsession.erreur}}
+
+        </div>
+    </div>
 
     <table id="Testpropserror" style="display: none;">
         <thead>
