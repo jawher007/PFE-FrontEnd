@@ -53,8 +53,11 @@
 
         </div>
     </mat-card>
+
     <mat-card class="flexing">
+
         <mat-card class="item">
+            <div class="ribbon ribbon-top-right"><span>Parallel</span></div>
             <div class="testdiv" *ngFor="let testsession of testvideo">
                 <p class="text">| Test Case #{{testsession.testrank}} | {{testsession.testname}} | Test Status :
                     <span *ngIf="testsession.teststatus=='passed'" class="passed">{{testsession.teststatus}}</span> <span *ngIf="testsession.teststatus=='failed'" class="failed">{{testsession.teststatus}}</span> | Created at {{testsession.startedAt}}
